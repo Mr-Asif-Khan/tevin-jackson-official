@@ -2020,6 +2020,19 @@ span.event_date i {
   line-height: 1.5em;
 }
 
+.about-signup-section .container{
+	display : flex;
+	justify-content: space-between;
+}
+
+.about-signup-section-row {
+	width: 66%;
+}
+
+.about-signup-section-row .about-signup-section-content{
+	width: 100%;
+}
+
 .about-signup-section{
   padding: 35px 0 53px; 
   background: #eaeaea;
@@ -2929,4 +2942,75 @@ span.event_date i {
   .book{
     flex-direction: column;
   }
+}
+
+/* FreeBooks Page CSS END */
+
+/* Contact Page CSS Start */
+
+.contact-info{
+  padding-top: 18px;
+}
+
+.contact-info .container{
+	display: flex;
+	justify-content: space-between;
+  align-items: center;
+}
+.contact-info-left{
+    width: 30%;
+}
+.contact-info-right{
+    width: 70%;
+}
+
+.contact-info .contact-info-left h1 {
+  font-size: 30px;
+  color: #000;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.contact-info .contact-info-left .address1 ul, .contact-info .contact-info-left .address2 ul{
+  font-size: 18px;
+  color: #000;
+  line-height: 1.5em;
+  list-style: none;
+  padding: 0px;
+}
+
+.contact-banner{
+  background: url(/wp-content/themes/tevin-jackson-official/1ee88ce9da50e664083efccb215c1f48.newsletter-bg.webp) no-repeat center;
+  background-size: cover;
+  padding: 100px 0px;
+}
+
+.contact-banner .contact-banner-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-banner .contact-banner-content h1 {
+  font-size: 30px;
+  color: white;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.contact-banner .contact-banner-content p {
+  color: #fff;
+  font-size: 24px;
+  line-height: 17px;
+  margin-bottom: 38px;
+}
+
+.contact-banner .contact-banner-content a {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  padding: 22px 44px;
+  background-color: #80D742;
 }
