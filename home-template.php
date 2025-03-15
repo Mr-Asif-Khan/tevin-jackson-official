@@ -506,7 +506,9 @@ $about_section = get_field('about_section');
         <div class="container">
             <div class="lets_connect_row" data-aos="zoom-in" data-aos-duration="2000">
                 <div class="img">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/tevin-jackson-mobile.png" class="img-fluid" alt="">
+                    <a href="https://www.youtube.com/@FlippingDetroit">
+                        <img src="<?php echo get_template_directory_uri() ?>/img/tevin-jackson-mobile.png" class="img-fluid" alt="">
+                    </a>
                 </div>
                 <div class="content" id="contact-info">
                     <h2>
@@ -621,7 +623,7 @@ $about_section = get_field('about_section');
     <!-- Lets Connect Section End -->
 
     <!-- Footer Starts -->
-    <footer class="footer_wrap">
+    <!-- <footer class="footer_wrap">
         <div class="container">
             <div class="footer_link_wrap">
                 <div class="footer_link">
@@ -829,14 +831,14 @@ $about_section = get_field('about_section');
                 <p>Copyright © 2021-2025 Grant Cardone Training Technologies, Inc., All Rights Reserved. </p>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <!-- Footer Ends -->
 
-    <a href="javascript:;" id="button-top">
+    <!-- <a href="javascript:;" id="button-top">
         <svg class="custom-svg-icon" data-name="mk-icon-chevron-up" data-cacheid="icon-67c8a21ae028d" style="height:16px;width:16px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792">
             <path d="M1683 1331l-166 165q-19 19-45 19t-45-19l-531-531-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z"></path>
         </svg>
-    </a>
+    </a> -->
 
 </div>
 

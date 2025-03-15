@@ -193,3 +193,24 @@ function my_acf_json_save_point( $path ) {
     return get_template_directory() . '/inc/acf-json';
 }
 add_filter( 'acf/settings/save_json', 'my_acf_json_save_point' );
+
+
+function custom_footer_menus() {
+	register_nav_menus(array(
+			'footer_learn_more' => __('Footer Learn More', 'your-theme'),
+			'footer_company'    => __('Footer Company', 'your-theme'),
+			'footer_support'    => __('Footer Support', 'your-theme'),
+			'footer_resources'  => __('Footer Resources', 'your-theme'),
+	));
+}
+add_action('after_setup_theme', 'custom_footer_menus');
+
+class Custom_Footer_Walker extends Walker_Nav_Menu {
+	function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+			$svg_icon = '<svg class="custom-svg-icon" data-name="mk-icon-angle-right" data-cacheid="icon-67c23405713d5" style="height:14px;width:5px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1792"><path fill="currentcolor" d="M595 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z"></path></svg>';
+			
+			$output .= '<li class="footer-menu-item">';
+			$output .= '<a href="' . esc_url($item->url) . '">' . $svg_icon . ' ' . esc_html($item->title) . '</a>';
+			$output .= '</li>';
+	}
+}
