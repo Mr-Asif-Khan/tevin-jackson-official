@@ -12,7 +12,7 @@ $about_section = get_field('about_section');
 
 <div id="body">
     <!-- Header -->
-    <header id="header">
+    <!-- <header id="header">
         <div class="header_top">
             <div class="container">
                 <div class="header-nav-links">
@@ -146,11 +146,11 @@ $about_section = get_field('about_section');
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
     <!-- Header End -->
 
     <!-- Search Overlay Start-->
-    <div class="search-panel ">
+    <!-- <div class="search-panel ">
         <a href="#" class="search-close">
             <svg class="custom-svg-icon" data-name="mk-moon-close-2" data-cacheid="icon-67c8a21ae0453" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path d="M390.628 345.372l-45.256 45.256-89.372-89.373-89.373 89.372-45.255-45.255 89.373-89.372-89.372-89.373 45.254-45.254 89.373 89.372 89.372-89.373 45.256 45.255-89.373 89.373 89.373 89.372z"></path>
@@ -167,7 +167,7 @@ $about_section = get_field('about_section');
                 </i>
             </form>
         </div>
-    </div>
+    </div> -->
     <!-- Search Overlay End-->
 
     <!-- Video Banner Start -->

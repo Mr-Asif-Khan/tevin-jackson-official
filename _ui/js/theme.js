@@ -6,9 +6,9 @@
   
     var mode = $(window).innerWidth() >= 992 ? "PC" : "MOBILE";
     if(mode == "MOBILE") {
-      $('.nav-block.dropdown-toggle>a').click(function(){
+      $('.menu-item > a').click(function(){
         $(this).toggleClass('open');
-        $(this).next('.dropdown').toggle(500);
+        $(this).next('.sub-menu').toggle(500);
       });
     }
   
