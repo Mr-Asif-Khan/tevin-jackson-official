@@ -1903,7 +1903,7 @@ span.event_date i {
 /* ABout page css*/
 .about-hero-section{
   padding: 160px 0; 
-  background: url(/wp-content/themes/tevin-jackson-official/img/gc-about-banner-bg.webp) no-repeat center; 
+  background: url(/wp-content/themes/tevin-jackson-official/img/tj-about.png) no-repeat center; 
   background-size: cover;
 }
 
@@ -2461,7 +2461,7 @@ span.event_date i {
   }
 
   .about-hero-section{
-    background: url(/wp-content/themes/tevin-jackson-official/img/gc-about-banner-bg-mob.webp) no-repeat center; 
+    background: url(/wp-content/themes/tevin-jackson-official/img/tj-about-banner-bg-mob.png) no-repeat center; 
     background-size: cover;
   }
 

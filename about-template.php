@@ -12,8 +12,8 @@ $shortcode = get_field('about_form_shortcode');
     <section class="about-hero-section">
         <div class="container">
             <div class="about-hero-section-text">
-                <h1>MEET GRANT CARDONE </h1>
-                <p>Grant Cardone is an American businessman, Equity Fund Manager ($4B Assets Under Management), Real Estate Investor, Business author and Founder of 10X Growth Conference, 10X Health System, Cardone Ventures & 10X Studios. Also author of seven best selling business books, creator of Cardone U online education and The 10X Growth Conferences (the largest business conference in the USA.)     </p>
+                <h1>MEET <span style="color:#B61D2B;">TEVIN JACKSON</span></h1>
+                <p>Tevin Jackson is a real estate investor, educator, and founder of Flipping Detroit. With deep roots in the city, he teaches investors how to profit in Metro Detroit’s real estate market through wholesaling, flipping, buy & hold strategies, and creative funding solutions. As the driving force behind DetroitCashHouses.com and DetroitCashBuyer.com, Tevin provides access to exclusive off-market deals and expert insights to help investors succeed.</p>
             </div>
         </div>
     </section>
