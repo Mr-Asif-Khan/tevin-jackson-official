@@ -3,7 +3,9 @@
  * Template Name: Contact
  */
 
-get_header(); ?>
+get_header(); 
+$shortcode = get_field('contact_form_shortcode');
+?>
 
 <div id="body">
 
@@ -35,7 +37,13 @@ get_header(); ?>
         </div>
 
         <div class="contact-info-right">
-          <?php echo do_shortcode('[contact-form-7 id="9275727" title="Contact form 1"]'); ?>
+          <?php
+                if (!empty($shortcode)) {
+                    echo do_shortcode($shortcode);
+                } else {
+                    echo '<p>Please add a form shortcode from the dashboard.</p>';
+                } 
+           ?>
         </div>
       </div>
     </section>

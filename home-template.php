@@ -506,7 +506,7 @@ $about_section = get_field('about_section');
         <div class="container">
             <div class="lets_connect_row" data-aos="zoom-in" data-aos-duration="2000">
                 <div class="img">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/grant-cardone-10xtalk-mobile.webp" class="img-fluid" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/tevin-jackson-mobile.png" class="img-fluid" alt="">
                 </div>
                 <div class="content" id="contact-info">
                     <h2>

@@ -3,7 +3,9 @@
  * Template Name: About
  */
 
-get_header(); ?>
+get_header(); 
+$shortcode = get_field('about_form_shortcode');
+?>
 
 <div id="body">
     <!-- Hero Section -->
@@ -133,7 +135,13 @@ get_header(); ?>
                 </div>
             </div>
             <div class="about-signup-section-form">
-                <?php echo do_shortcode('[contact-form-7 id="5ff4b01" title="About Form"]'); ?>
+                <?php 
+                    if (!empty($shortcode)) {
+                        echo do_shortcode($shortcode);
+                    } else {
+                        echo '<p>Please add a form shortcode from the dashboard.</p>';
+                    } 
+                ?>
             </div>
         </div>
     </section>

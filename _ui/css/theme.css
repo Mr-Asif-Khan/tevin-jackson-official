@@ -1250,8 +1250,7 @@ span.event_date i {
 
 .about_row{
   display: flex; 
-  flex-wrap: wrap; 
-  align-items: center;
+  flex-wrap: wrap;
 }
 
 .about_row .content{
@@ -1314,8 +1313,7 @@ span.event_date i {
 
 .about_row .content ul li:hover span{ 
   text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8); 
-  color: #fff; 
-  font-weight: 600;
+  color: #fff;
 }
 
 .service_section{
