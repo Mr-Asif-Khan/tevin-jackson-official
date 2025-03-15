@@ -320,7 +320,7 @@ $about_section = get_field('about_section');
                 </div>
                 <div class="single_service">
                     <a href="#">
-                        <img src="<?php echo get_template_directory_uri() ?>/img/10x-podcast-2.webp" class="img-fluid" alt="">
+                        <img src="<?php echo get_template_directory_uri() ?>/img/tj-podcast.png" class="img-fluid" alt="">
                         <div class="overlay">
                             <h2>
                                 10<span>X</span>

@@ -61,3 +61,5 @@ $shortcode = get_field('contact_form_shortcode');
     </section>
     <!-- Contact Banner Section End -->
 </div>
+
+<?php get_footer(); ?>
