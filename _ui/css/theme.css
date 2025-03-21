@@ -3013,3 +3013,915 @@ span.event_date i {
   padding: 22px 44px;
   background-color: #80D742;
 }
+
+/* Contact Page CSS End */
+
+
+/* Single Listing Page */
+
+.epl-single-property{
+  padding: 50px 0;
+}
+
+.epl-single-property .container{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.epl-single-property .left-section{
+  width: 65%;
+}
+
+.epl-single-property .right-section{
+  width: 25%;
+  margin-left: 10%;
+}
+
+.epl-single-property .left-section .property-title{
+  font-family: 'Satoshi', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 36px;
+  margin-bottom: 15px;
+}
+
+.epl-single-property .left-section .single_pro_detail.offer_submissiondate {
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 100%;
+}
+.epl-single-property .left-section .property-details{
+  font-family: 'Satoshi', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 15px;
+  float: left;
+  margin-bottom: 0px;
+}
+
+.epl-single-property .left-section .single_pro_detail .status_labels {
+  float: right;
+}
+
+.epl-single-property .left-section .single_pro_detail .status_labels .availability {
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 1px 5px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.epl-single-property .left-section .single_pro_detail .status_labels .availability.available {
+  color: #007031;
+  border-color: #007031;
+  background-color: rgba(0, 112, 49, .05);
+}
+
+.epl-single-property .left-section .single_pro_detail .status_labels .availability.sold{
+  color: #800000;
+  border-color: #800000;
+  background-color: rgba(0, 112, 49, .05);
+}
+
+.epl-single-property .left-section .single_pro_detail .status_labels .availability.pending{
+  color: #ee560a;
+  border-color: #ee560a;
+  background-color: rgba(0, 112, 49, .05);
+}
+
+
+
+
+
+.feature-img-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-slider{
+  display: flex !important;
+  justify-content: center;
+}
+
+.main-slider img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.thumbnail-slider img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.epl-single-property .left-section .singlepro_details {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.epl-single-property .left-section .singlepro_details li{
+  width: 24%;
+  float: left;
+  margin: 1%;
+  margin-left: 0;
+  padding: 12px 10px;
+  background-color: #fff;
+  border: solid 1px #f2f2f2;
+  list-style-type: none;
+}
+
+.epl-single-property .left-section .singlepro_details .singlepro_details-section{
+  position: relative;
+  padding-left: 40px;
+}
+
+.epl-single-property .left-section .singlepro_details .singlepro_details-section .single-icon{
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  max-width: 24px;
+}
+.epl-single-property .left-section .singlepro_details .single_detail label {
+  color: #95989a;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  font-family: 'Satoshi', sans-serif;
+}
+
+.epl-single-property .left-section .singlepro_details .single_detail span {
+  color: #01010b;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  display: block;
+  font-family: 'Satoshi', sans-serif;
+}
+
+.epl-single-property .left-section .singlepro_description{
+  padding: 12px 15px;
+  margin-bottom: 20px;
+}
+
+.epl-single-property .left-section .singlepro_description p{
+  font-family: 'Satoshi', sans-serif !important;
+}
+
+.epl-single-property .left-section .singlepro_description .sebtitle, .singlepro_spread .sebtitle{
+  color: #01010b;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 24px;
+  display: block;
+  font-family: 'Satoshi', sans-serif;
+}
+.epl-single-property .left-section .singlepro_description .singlepro_description_content{
+  color: #01010b;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 23px;
+  display: block;
+  font-family: 'Satoshi', sans-serif;
+}
+
+.epl-single-property .left-section .singlepro_spread{
+  margin-bottom: 50px;
+  display: inline-block;
+  width: 100%;
+}
+
+.epl-single-property .left-section .singlepro_spread .singlepro_spread_content{
+  border: solid 1px #f2f2f2;
+  background-color: #fff;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  display: inline-block;
+  list-style-type: none;
+}
+.epl-single-property .left-section .singlepro_spread .singlepro_spread_content li{
+  float: left;
+  width: 33.33%;
+}
+
+.epl-single-property .left-section .singlepro_spread .singlepro_spread_content li+li{
+  border-left: 1px solid #f2f2f2;
+}
+
+.epl-single-property .left-section .singlepro_spread .singlepro_spread_content li .spread_label{
+  color: #50585b;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  line-height: 23px;
+  font-family: 'Satoshi', sans-serif;
+}
+.epl-single-property .left-section .singlepro_spread .singlepro_spread_content li .spread_price{
+  color: #01010b;
+  font-size: 15px;
+  font-weight: 500;
+  display: block;
+  line-height: 23px;
+  font-family: 'Satoshi', sans-serif;
+}
+
+
+
+
+.right-section .propertie_sidebar_main {
+  border-radius: 5px;
+  border: solid 1px #dce8f0;
+  background-color: #eff6fa;
+  margin: 40px 0;
+  padding: 22px;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+}
+
+.right-section .propertie_sidebar_main .prop_author_and_offer  {
+  width: 100%;
+  display: inline-block;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.propertie_sidebar_main .prop_author_and_offer .propauthor_details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.propertie_sidebar_main .prop_author_and_offer .propauthor_details .author_image img {
+  width: 80px;
+  height: 80px;
+  background-color: #eff6fa;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.propertie_sidebar_main .prop_author_and_offer .propauthor_details .author_name_tag h3 {
+  font-family: Satoshi;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+  color: #000;
+}
+.propertie_sidebar_main .prop_author_and_offer .propauthor_details .author_name_tag span {
+  font-family: Satoshi;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: normal;
+  color: #1b4965;
+}
+
+.right-section .propertie_sidebar_main .propauthor_div {
+  width: 100%;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.right-section .propertie_sidebar_main .propauthor_div .prop_title {
+  color: #95989a;
+  font-size: 12px;
+  font-weight: 500;
+  display: block;
+}
+.right-section .propertie_sidebar_main .propauthor_div .prop_number {
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  text-decoration: none;
+  color: #1c547a;
+}
+
+.right-section .propertie_sidebar_main .propauthor_offer_buttons .propmake_anoffer{
+  padding: 11px;
+  margin: 7px 0;
+  border-radius: 5px;
+  background-color: #1b4965;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.right-section .propertie_sidebar_main .propauthor_offer_buttons .prop_buynow {
+  padding: 11px;
+  margin: 7px 0;
+  border-radius: 5px;
+  background-color: #fff;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  color: #1b4965;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1.5px solid #1b4965 !important;
+}
+
+.propertie_sidebar_main .sidebar_avoid .prop_inquire_deal {
+  width: 100%;
+  display: inline-block;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.propertie_sidebar_main .sidebar_avoid .prop_inquire_deal .action_button {
+  padding: 11px;
+  margin: 7px 0;
+  border-radius: 5px;
+  background-color: #fff;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  color: #1b4965;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1.5px solid #1b4965 !important;
+}
+
+.properties_similar_section_main .similar_pro_title{
+  font-size: 32px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: normal;
+  color: #1b4965;
+}
+
+.properties_similar_section_main .similar_properties_all {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 15px;
+  margin-top: 25px;
+  margin-bottom: 100px;
+}
+
+.properties_similar_section_main .similar_properties_all .similer_property {
+  max-width: 19%;
+  width: 100%;
+  display: inline-block;
+}
+
+.properties_similar_section_main .similar_properties_all .similer_property>a img {
+  border-radius: 10px;
+  width: 215.4px;
+  height: 151px;
+  object-fit: cover;
+}
+
+.properties_similar_section_main .similar_properties_all .similer_property h5{
+  margin-top: 12px;
+  margin-bottom: 5px
+}
+
+
+.properties_similar_section_main .similar_properties_all .similer_property h5 a{
+  font-size: 15px;
+  font-weight: 500;
+  color: #1b4965;
+  text-decoration: none;
+}
+
+.properties_similar_section_main .similar_properties_all .similer_property span{
+  font-size: 15px;
+  font-weight: 600;
+  line-height: normal;
+  color: #000;
+}
+
+.properties_similar_section_main .similar_properties_all .similer_property p {
+  font-size: 13px;
+  font-weight: 300;
+  color: #1b4965;
+  margin: 2px 0;
+}
+
+
+
+/* Inquiry Form CSS */
+.custom-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.custom-modal-dialog {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  max-width: 500px;
+  width: calc(100% - 20px);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: top 0.3s ease-in-out;
+}
+.custom-modal.show .custom-modal-dialog {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.custom-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 30px 15px 30px;
+}
+.custom-close {
+  cursor: pointer;
+  font-size: 20px;
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+  height: 22px;
+  width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+.custom-modal-title{
+margin-bottom: 0px;
+font-family: Satoshi;
+font-size: 25px;
+font-weight: 800;
+font-style: normal;
+line-height: normal;
+color: #000;
+}
+
+.custom-modal-body{
+display: inline-block;
+height: 100%;
+width: 100%;
+padding: 15px 30px 15px 30px;
+position: relative;
+}
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+  .epl-single-property .container, .properties_similar_section_main .container{
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .epl-single-property .left-section{
+    width: 60%;
+  }
+  
+  .epl-single-property .right-section{
+    width: 30%;
+    margin-left: 10%;
+  }
+  .properties_similar_section_main .similar_properties_all {
+    gap: 0;
+    row-gap: 30px;
+    flex-wrap: wrap;
+  }
+  .properties_similar_section_main .similar_properties_all .similer_property {
+    max-width: 33.33%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 769px) {
+  .epl-single-property .property-slider{
+    padding: 25px;
+  }
+  .epl-single-property .container{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .epl-single-property .left-section{
+    width: 100%;
+  }
+  
+  .epl-single-property .right-section{
+    width: 100%;
+    margin: 0px;
+  }
+}
+
+@media (max-width: 426px) {
+  .epl-single-property .left-section .singlepro_details li {
+    width: 100%;
+  }
+  .properties_similar_section_main .similar_properties_all .similer_property {
+    max-width: 100%;
+  }
+  .properties_similar_section_main .similar_properties_all .similer_property>a img {
+    width: 100%;
+    height: 250px;
+  }
+}
+/* Single Listing Page CSS End */
+
+
+/* Listings Page CSS Start */
+
+.propertie_title_filter_inner {
+  display: flex;
+  width: 100%;
+  margin: 30px 0;
+  justify-content: space-between;
+}
+.propertie_title_filter_inner .propertie_title h1 {
+  color: #01010b;
+  font-size: 32px;
+  font-weight: 700;
+}
+.propertie_filter_divi {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.propertie_title_filter_inner .propertie_filter .filter_button, .propertie_title_filter_inner .reset_filter .filter_button {
+  border-radius: 5px;
+  border: solid 1px #f2f2f2;
+  background-color: #fff;
+  color: #01010b;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+.propertie_title_filter_inner .reset_filter {
+  display: none;
+}
+.propertie_title_filter_inner .propertie_filter .filter_button img, .propertie_title_filter_inner .reset_filter .filter_button img {
+  max-width: 16px;
+  float: left;
+  margin-right: 5px;
+}
+
+.featurepropertiess .propertiessub {
+  display: inline-block;
+  width: 100%;
+  padding: 0px 10px;
+}
+.featurepropertiess .feature_image_section {
+  float: left;
+  width: 60%;
+  position: relative;
+}
+.featurepropertiess .feature_image_section .propertie_image {
+  width: 100%;
+}
+img {
+  height: auto;
+  max-width: 100%;
+}
+.featurepropertiess .propertie_content {
+  float: left;
+  width: 40%;
+  padding-left: 40px;
+  text-align: left;
+}
+.featurepropertiess .propertie_content .propertie_addresa {
+  color: #000;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.featurepropertiess .propertie_content .propertie_price {
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.featurepropertiess .propertie_content .propertie_details {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 60px;
+  list-style-type: none;
+  padding: 0px;
+}
+.featurepropertiess .propertie_content .propertie_details li {
+  width: 49%;
+  float: left;
+  margin: 1%;
+  margin-left: 0;
+  padding: 12px 10px;
+  background-color: #fff;
+  border: solid 1px #f2f2f2;
+}
+.featurepropertiess .propertie_content .propertie_details .single_detail_section {
+  position: relative;
+  padding-left: 40px;
+}
+.featurepropertiess .propertie_content .propertie_details .single_detail_section .single_icon {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  max-width: 24px;
+}
+.featurepropertiess .propertie_content .propertie_details .single_detail label {
+  color: #95989a;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.featurepropertiess .propertie_content .propertie_details .single_detail span {
+  color: #01010b;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  display: block;
+}
+
+.featurepropertiess .propertie_content .propertie_view_detail_button {
+  display: inline-block;
+  width: 100%;
+}
+.featurepropertiess .propertie_content .propertie_view_detail_button .view_detail {
+  border-radius: 10px;
+  border: solid 1.5px #1b4965;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1b4965;
+  padding: 13px 30px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+
+.listinglist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 120px;
+  padding: 0px 10px ;
+}
+
+
+.listinglist .propertiess {
+  width: 48%;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.listinglist .feature_image_section {
+  float: left;
+  width: 100%;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.listinglist .feature_image_section .propertie_image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.listinglist .feature_image_section .available_label, .listinglist .feature_image_section .sold_label, .listinglist .feature_image_section .pending_label, .listinglist .feature_image_section .label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  padding: 7px 20px;
+  background-color: #007031;
+  border-radius: 5px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.listinglist .feature_image_section .sold_label {
+  background-color: #800000;
+}
+
+.listinglist .feature_image_section .pending_label {
+  background-color: #ee560a;
+}
+.listinglist .feature_image_section .label {
+  background-color: grey;
+}
+
+.listinglist .propertie_content {
+  float: left;
+  width: 100%;
+  text-align: left;
+}
+.listinglist .propertie_content .propertie_addresa {
+  color: #000;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.listinglist .propertie_content .propertie_price {
+  display: inline-block;
+  width: 100%;
+}
+
+.listinglist .propertie_content .propertie_price .price {
+  color: #000;
+  font-size: 32px;
+  font-weight: 500;
+  display: inline-block;
+  vertical-align: middle;
+}
+.listinglist .propertie_content .propertie_price .single_detail_sec {
+  color: #000;
+  font-size: 20px;
+  font-weight: 500;
+  display: inline-block;
+  vertical-align: middle;
+}
+.listinglist .propertie_content .propertie_view_detail_button {
+  display: inline-block;
+  width: 100%;
+  margin-top: 30px;
+}
+.listinglist .propertie_content .propertie_view_detail_button .view_detail {
+  border-radius: 10px;
+  border: solid 1.5px #1b4965;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1b4965;
+  padding: 13px 40px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.load-more-container{
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  margin: 80px 0 120px 0;
+  text-align: center;
+}
+.load-more-container:before{
+  content: "";
+  background-color: #1b4965;
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 23px;
+}
+
+.load-more-container #load-more{
+  border-radius: 10px;
+  border: solid 1px #1b4965;
+  background-color: #1b4965;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  padding: 13px 60px;
+  position: relative;
+  cursor: pointer;
+  font-family: 'Satoshi', sans-serif;
+}
+
+.signup-loader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  z-index: 99999;
+  background-color: #cccccc75;
+  display: none;
+}
+
+.signup-loader .loader-div {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.loader-div {
+  color: #ffffff;
+  font-size: 11px;
+  text-indent: -99999em;
+  margin: 55px auto;
+  position: relative;
+  width: 10em;
+  height: 10em;
+  box-shadow: inset 0 0 0 1em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  border-radius: 50%;
+}
+
+.loader-div:before {
+  width: 5.2em;
+  height: 10.2em;
+  background: #008080;
+  border-radius: 10.2em 0 0 10.2em;
+  top: -0.1em;
+  left: -0.1em;
+  -webkit-transform-origin: 5.1em 5.1em;
+  transform-origin: 5.1em 5.1em;
+  -webkit-animation: load2 2s infinite ease 1.5s;
+  animation: load2 2s infinite ease 1.5s;
+}
+.loader-div:after {
+  width: 5.2em;
+  height: 10.2em;
+  background: #008080;
+  border-radius: 0 10.2em 10.2em 0;
+  top: -0.1em;
+  left: 4.9em;
+  -webkit-transform-origin: 0.1em 5.1em;
+  transform-origin: 0.1em 5.1em;
+  -webkit-animation: load2 2s infinite ease;
+  animation: load2 2s infinite ease;
+}
+.loader-div:before, .loader-div:after {
+  position: absolute;
+  content: '';
+}
+
+@keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+@media screen and (max-width: 991px) {
+  .featurepropertiess .propertie_content {
+    width: 50%;
+    padding-left: 20px;
+  }
+  .featurepropertiess .feature_image_section {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .featurepropertiess .propertie_content .propertie_details li {
+    width: 100%;
+    margin: 1% 0;
+  }
+  .featurepropertiess .propertiessub{
+    display: flex;
+    flex-direction: column;
+  }
+  .featurepropertiess .propertie_content {
+    width: 100%;
+    padding-left: 0px;
+  }
+  .featurepropertiess .feature_image_section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 426px) {
+  .listinglist .propertiess {
+    width: 100%;
+  }
+  
+}

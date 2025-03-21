@@ -138,7 +138,7 @@ add_action( 'widgets_init', 'tevin_jackson_official_widgets_init' );
  * Enqueue scripts and styles.
  */
 function tevin_jackson_official_scripts() {
-	wp_enqueue_style( 'tevin-jackson-official-style', get_template_directory_uri() . '/_ui/css/theme.css', array(), _S_VERSION );
+	wp_enqueue_style( 'tevin-jackson-official-style', get_template_directory_uri() . '/_ui/css/theme.css', array(), time() );
 	wp_enqueue_style( 'tj-slick', get_template_directory_uri() . '/_ui/css/slick-min.css', array(), _S_VERSION );
 	wp_style_add_data( 'tevin-jackson-official-style', 'rtl', 'replace' );
 
@@ -214,3 +214,197 @@ class Custom_Footer_Walker extends Walker_Nav_Menu {
 			$output .= '</li>';
 	}
 }
+
+
+// Add custom post type
+
+function register_custom_post_type() {
+	$labels = array(
+			'name'               => __('Listings'),
+			'singular_name'      => __('Listing'),
+			'menu_name'          => __('Listings'),
+			'name_admin_bar'     => __('Listing'),
+			'add_new'            => __('Add New Listing'),
+			'add_new_item'       => __('Add New Listing'),
+			'new_item'           => __('New Listing'),
+			'edit_item'          => __('Edit Listing'),
+			'view_item'          => __('View Listing'),
+			'all_items'          => __('All Listings'),
+			'search_items'       => __('Search Listings'),
+			'not_found'          => __('No Listings found'),
+			'not_found_in_trash' => __('No Listings found in Trash')
+	);
+
+	$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'has_archive'        => true,
+			'rewrite'            => array('slug' => 'listings'),
+			'menu_position'      => 5,
+			'menu_icon'          => 'dashicons-admin-home', // Custom Icon
+			'supports'           => array('title', 'editor', 'thumbnail', 'custom-fields')
+	);
+
+	register_post_type('listing', $args);
+}
+add_action('init', 'register_custom_post_type');
+
+function custom_listing_columns_order($columns) {
+	$new_columns = [];
+
+	$new_columns['cb'] = $columns['cb'];
+
+
+	$new_columns['listing_image'] = 'Image';
+
+
+	$new_columns['property_price'] = 'Price';
+
+
+	$new_columns['title'] = $columns['title'];
+
+
+	$new_columns['property_status'] = 'Status';
+
+
+	$new_columns['agent'] = 'Agent';
+
+
+	$new_columns['date'] = $columns['date'];
+
+	return $new_columns;
+}
+add_filter('manage_edit-listing_columns', 'custom_listing_columns_order');
+
+function show_featured_image_column($column, $post_id) {
+	if ($column == 'listing_image') {
+			$image = get_the_post_thumbnail($post_id, array(80, 120));
+			echo $image ? $image : 'No Image';
+	}
+	if ($column == 'property_price') {
+		$price = get_post_meta($post_id, 'property_price', true); 
+		echo $price ? '$' . number_format($price) : 'N/A';
+	}
+
+	if ($column == 'property_status') {
+			$status = get_post_meta($post_id, 'property_status', true);
+			echo $status ? $status : 'N/A';
+	}
+
+	if ($column == 'agent') {
+			$author_id = get_post_field('post_author', $post_id);
+			$author_name = get_the_author_meta('display_name', $author_id);
+			echo $author_name ? $author_name : 'N/A';
+	}
+}
+add_action('manage_listing_posts_custom_column', 'show_featured_image_column', 10, 2);
+
+function admin_custom_styles() {
+	echo '<style>
+			.column-listing_image { width: auto;}
+			.column-listing_image img { max-width: 100px; height: auto; border-radius: 5px; }
+	</style>';
+}
+add_action('admin_head', 'admin_custom_styles');
+
+function format_phone_number($phone) {
+	$phone = preg_replace('/[^0-9]/', '', $phone);
+	if (strlen($phone) == 10) {
+			return '('.substr($phone, 0, 3).') '.substr($phone, 3, 3).'-'.substr($phone, 6);
+	}
+	return $phone;
+}
+
+function load_more_listings() {
+	$paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
+	$posts_per_page = 4;
+	$offset = ($paged - 1) * $posts_per_page + 1;
+	$args = array(
+			'post_type'      => 'listing',
+			'posts_per_page' => $posts_per_page,
+			'paged'          => $paged,
+			'offset'         => $offset
+	);
+
+	$query = new WP_Query($args);
+
+	if ($query->have_posts()) :
+			while ($query->have_posts()) : $query->the_post();
+					$price = get_post_meta(get_the_ID(), 'property_price', true);
+					$bedrooms = get_post_meta(get_the_ID(), 'bedrooms', true);
+					$baths = get_post_meta(get_the_ID(), 'bathrooms', true);
+					$square_feet = get_post_meta(get_the_ID(), 'square_footage', true);
+					$status = get_post_meta(get_the_ID(), 'property_status', true);
+					?>
+					<div class="propertiess">
+							<div class="propertiessub">
+									<div class="feature_image_section">
+											<a href="<?php the_permalink(); ?>">
+													<?php if (has_post_thumbnail()) : ?>
+															<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>" class="propertie_image lazyloaded">
+													<?php endif; ?>
+											</a>
+											<div class="status_labels">
+                        <?php
+                          switch ($status) {
+                              case 'Sold':
+                                  $status_class = 'sold_label';
+                                  break;
+                              case 'Available':
+                                  $status_class = 'available_label';
+                                  break;
+                              case 'Pending':
+                                  $status_class = 'pending_label';
+                                  break;
+                              default:
+                                  $status_class = 'label';
+                                  $status = 'Unknown';
+                          }
+                          ?>
+                          <span class="<?php echo $status_class; ?>"><?php echo $status; ?></span>
+                      </div>
+									</div>
+									<div class="propertie_content">
+											<a href="<?php the_permalink(); ?>">
+													<h3 class="propertie_addresa"><?php the_title(); ?></h3>
+											</a>
+											<div class="propertie_price">
+													<span class="price">$ <?php echo !empty($price) ? number_format($price) : 'N/A'; ?></span>
+													<span class="single_detail_sec">
+															<?php echo !empty($bedrooms) ? $bedrooms . ' Bedrooms' : 'N/A'; ?> | 
+															<?php echo !empty($baths) ? $baths . ' Baths' : 'N/A'; ?> |  
+															<?php echo !empty($square_feet) ? number_format($square_feet) . ' ft' : 'N/A'; ?>
+													</span>
+											</div>
+											<div class="propertie_view_detail_button">
+                        <a class="view_detail" href="<?php the_permalink(); ?>">View Details</a>
+                      </div>
+									</div>
+							</div>
+					</div>
+			<?php endwhile;
+	endif;
+	
+	wp_reset_postdata();
+	die();
+}
+add_action('wp_ajax_load_more_listings', 'load_more_listings');
+add_action('wp_ajax_nopriv_load_more_listings', 'load_more_listings');
+
+
+
+// Passing Data into Forms 
+
+function set_hidden_property_title($tag) {
+	if ($tag['name'] !== 'property_title') {
+			return $tag;
+	}
+
+	global $post;
+	if (isset($post)) {
+			$tag['values'] = [esc_attr($post->post_title)];
+	}
+
+	return $tag;
+}
+add_filter('wpcf7_form_tag', 'set_hidden_property_title', 10, 1);
