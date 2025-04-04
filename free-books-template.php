@@ -19,14 +19,58 @@ get_header(); ?>
           <video autoplay muted loop playsinline>
             <source src="<?php echo get_template_directory_uri() ?>/img/videoplayback1.mp4" type="video/mp4">
           </video>
-          <img src="<?php echo get_template_directory_uri() ?>/img/free-books-1.webp" alt="" width="540px">
+          <img src="<?php echo get_template_directory_uri() ?>/img/4 Books Cover Mokcup.png" alt="" width="540px">
         </div>
       </div>
     </section>
     <!-- Hero Section End -->
 
+
+    <?php
+    $books = get_field('books', 'option');
+    if (!empty($books)) :
+        $bg_classes = ['white-background', 'minor-dark-background']; 
+        $i = 0;
+    ?>
+    <section class="free-books-section">
+    <?php foreach ($books as $book) : ?>
+      <div class="<?php echo $bg_classes[$i % 2]; ?>">
+        <div class="container">
+          <div class="book">
+            <div class="book-section-left">
+              <img src="<?php echo esc_url($book['book_image']); ?>" alt="" width="350px" height="448px">
+              <h1><?php echo esc_html($book['book_slogan']); ?></h1>
+            </div>
+            <div class="book-section-right">
+              <h2 class="text-center"><?php echo esc_html($book['book_title']); ?></h2>
+              <p><?php echo esc_html($book['book_description']); ?></p>
+              <ul>
+                <?php if (!empty($book['book_bullets'])) : ?>
+                  <?php foreach ($book['book_bullets'] as $bullet) : ?>
+                    <li>
+                      <svg class="mk-svg-icon" style="height:16px;width:16px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792">
+                        <path d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"></path>
+                      </svg>
+                      <strong><?php echo esc_html($bullet['bullet_text']); ?></strong>
+                    </li>
+                  <?php endforeach; ?>
+                <?php endif; ?>
+              </ul>
+              <div class="btn-with-warning">
+                <a href="<?php echo esc_url($book['book_button_link']); ?>"><?php echo esc_html($book['book_button_text']); ?></a>
+                <p>*Domestic US Only.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+        <?php $i++; ?>
+    <?php endforeach; ?>
+    </section>
+<?php endif; ?>
+
     <!-- Free Books Section -->
-     <section class="free-books-section">
+     <!-- <section class="free-books-section">
       
       <div class="white-background">
         <div class="container">
@@ -338,7 +382,7 @@ get_header(); ?>
         </div>
       </div>
 
-     </section>
+     </section> -->
     <!-- Free Books Section End -->
 
 </div>

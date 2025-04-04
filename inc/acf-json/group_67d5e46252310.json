@@ -1,9 +1,9 @@
 {
-    "key": "group_67d40b946d24e",
-    "title": "Theme Options",
+    "key": "group_67d5e46252310",
+    "title": "Testimonials",
     "fields": [
         {
-            "key": "field_67d40b9573201",
+            "key": "field_67d5e2da38dd9",
             "label": "General Testimonials",
             "name": "general_testimonials",
             "aria-label": "",
@@ -19,7 +19,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_67d40c3073202",
+                    "key": "field_67d5e2f338dda",
                     "label": "Section Heading",
                     "name": "section_heading",
                     "aria-label": "",
@@ -40,7 +40,7 @@
                     "append": ""
                 },
                 {
-                    "key": "field_67d40c3c73203",
+                    "key": "field_67d5e31a38ddc",
                     "label": "Testimonials",
                     "name": "testimonials",
                     "aria-label": "",
@@ -62,13 +62,13 @@
                     "rows_per_page": 20,
                     "sub_fields": [
                         {
-                            "key": "field_67d40c8f6d4de",
+                            "key": "field_67d5e33638ddd",
                             "label": "Tesimony Image",
                             "name": "tesimony_image",
                             "aria-label": "",
                             "type": "image",
                             "instructions": "",
-                            "required": 1,
+                            "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
@@ -86,7 +86,7 @@
                             "mime_types": "",
                             "allow_in_bindings": 0,
                             "preview_size": "medium",
-                            "parent_repeater": "field_67d40c3c73203"
+                            "parent_repeater": "field_67d5e31a38ddc"
                         }
                     ]
                 }
@@ -111,5 +111,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741950191
+    "modified": 1742839685
 }

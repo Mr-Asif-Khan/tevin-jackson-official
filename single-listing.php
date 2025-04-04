@@ -2,6 +2,8 @@
 
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+<link rel = "stylesheet" type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css"/>
+
 
 <!-- jQuery (Required) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -114,9 +116,14 @@ $buynowshortcode = get_field('buy_now_form_shortcode');
 
         <?php if (!empty($gallery) && is_array($gallery)) : ?>
         <div class="property-slider">
-          <div class="main-slider">
-              <?php foreach ($gallery as $image_id) : ?>
-                  <div><img src="<?php echo wp_get_attachment_url($image_id); ?>" alt="Property Image"></div>
+          <div class="main-slider" id="lightgallery">
+              <?php foreach ($gallery as $image_id) :
+                $image_url = wp_get_attachment_url($image_id); ?>
+                <div>
+                    <a href="<?php echo esc_url($image_url); ?>" data-src="<?php echo esc_url($image_url); ?>">
+                        <img src="<?php echo esc_url($image_url); ?>" alt="Property Image" loading="lazy">
+                    </a>
+                </div>
               <?php endforeach; ?>
           </div>
           <div class="thumbnail-slider">
@@ -556,6 +563,24 @@ jQuery(document).ready(function($){
         focusOnSelect: true
     });
 });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      var galleryElement = document.getElementById("lightgallery");
+
+      if (galleryElement && galleryElement.querySelectorAll("a").length > 0) {
+          lightGallery(galleryElement, {
+              selector: 'a',
+              thumbnail: true,
+              download: false,
+              closable: true,
+          });
+      } else {
+          console.warn("LightGallery: No valid images found.");
+      }
+  });
 </script>
 
 <?php get_footer(); ?>

@@ -7,7 +7,14 @@ get_header();
 
 $header_video = get_field('header_video');
 $about_section = get_field('about_section');
-// var_dump($about_section);exit;
+$event_image = get_field('home_event_image');
+$event_date = get_field('home_event_date');
+$event_month = get_field('home_event_month');
+$event_title = get_field('home_event_title');
+$event_address = get_field('home_event_address');
+$event_time = get_field('home_event_time');
+$event_button_text = get_field('home_event_button_text');
+$event_button_link = get_field('home_event_button_link');
 ?>
 
 <div id="body">
@@ -185,13 +192,13 @@ $about_section = get_field('about_section');
                     <div class="single_event">
                         <a href="#">
                             <div class="event_img">
-                                <img src="<?php echo get_template_directory_uri() ?>/img/thumb-300x300.webp" class="img-fluid" alt="">
+                                <img src="<?php echo $event_image; ?>" class="img-fluid" alt="">
                             </div>
                             <span class="event_date">
-                                19 <i>Mar</i>
+                            <?php echo $event_date; ?> <i><?php echo $event_month; ?></i>
                             </span>
                             <div class="event_info">
-                                <h4>10X Growth Conference 2025</h4>
+                                <h4><?php echo $event_title; ?></h4>
                                 <ul>
                                     <li>
                                         <span>
@@ -199,7 +206,7 @@ $about_section = get_field('about_section');
                                                 <path fill="currentcolor" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
                                             </svg>
                                         </span>
-                                        MGM Grand, Las Vegas, Nevada
+                                        <?php echo $event_address; ?>
                                     </li>
                                     <li>
                                         <span>
@@ -207,7 +214,7 @@ $about_section = get_field('about_section');
                                                 <path fill="currentcolor" d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/>
                                             </svg>
                                         </span>
-                                        9:00 am - 6:00 pm 
+                                        <?php echo $event_time; ?> 
                                     </li>
                                 </ul>
                             </div>
@@ -260,7 +267,7 @@ $about_section = get_field('about_section');
                             </a>
                         </li>
                     </ul>
-                    <a href="#" class="button">SECURE YOUR SPOT NOW!</a>
+                    <a href="<?php echo $event_button_link; ?>" class="button"><?php echo $event_button_text; ?></a>
                 </div>
             </div>
         </div>
@@ -382,44 +389,44 @@ $about_section = get_field('about_section');
         <div class="part" data-aos="fade-right">
             <div class="item">
                 <a href="#">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/10x-rule-2.webp" class="img-fluid" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/book-1-front.png" class="img-fluid" alt="">
                 </a>
             </div>
             <div class="item">
                 <a href="#">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/sell-or-be-sold-2.jpeg" class="img-fluid" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/book-1-back.png" class="img-fluid" alt="">
                 </a>
             </div>
             <div class="item">
                 <a href="#">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/10x-kids-book.jpg" class="img-fluid" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/book-5-front.png" class="img-fluid" alt="">
                 </a>
             </div>
             <div class="item">
                 <a href="#">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/closer-2.jpeg" class="img-fluid" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/book-5-back.png" class="img-fluid" alt="">
                 </a>
             </div>
         </div>
         <div class="part" data-aos="fade-left">
             <div class="item">
                 <a href="#">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/millionaire_booklet-2.jpeg" class="img-fluid" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/book-3-front.png" class="img-fluid" alt="">
                 </a>
             </div>
             <div class="item">
                 <a href="#">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/sell-or-be-sold-2.jpeg" class="img-fluid" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/book-4-front.png" class="img-fluid" alt="">
                 </a>
             </div>
             <div class="item">
                 <a href="#">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/10x-kids-book.jpg" class="img-fluid" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/book-2-front.png" class="img-fluid" alt="">
                 </a>
             </div>
             <div class="item">
                 <a href="#">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/closer-2.jpeg" class="img-fluid" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/book-2-back.png" class="img-fluid" alt="">
                 </a>
             </div>
         </div>

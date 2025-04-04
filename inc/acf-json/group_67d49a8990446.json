@@ -1,15 +1,15 @@
 {
-    "key": "group_67d2c0d7a053f",
-    "title": "Home Fields",
+    "key": "group_67d49a8990446",
+    "title": "Home-Fields",
     "fields": [
         {
-            "key": "field_67d2c0d864911",
+            "key": "field_67d49a89fd804",
             "label": "Header Video",
             "name": "header_video",
             "aria-label": "",
             "type": "url",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -21,7 +21,7 @@
             "placeholder": ""
         },
         {
-            "key": "field_67d2c48c8a53b",
+            "key": "field_67d49ab9fd805",
             "label": "About Section",
             "name": "about_section",
             "aria-label": "",
@@ -37,8 +37,8 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_67d2c49a8a53c",
-                    "label": "Top heading",
+                    "key": "field_67d49acdfd806",
+                    "label": "Top Heading",
                     "name": "top_heading",
                     "aria-label": "",
                     "type": "text",
@@ -58,7 +58,7 @@
                     "append": ""
                 },
                 {
-                    "key": "field_67d2c4b98a53d",
+                    "key": "field_67d49ae1fd807",
                     "label": "Main Heading",
                     "name": "main_heading",
                     "aria-label": "",
@@ -79,7 +79,7 @@
                     "append": ""
                 },
                 {
-                    "key": "field_67d2c55fbbb30",
+                    "key": "field_67d49af1fd808",
                     "label": "Text Left",
                     "name": "text_left",
                     "aria-label": "",
@@ -88,45 +88,37 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "40",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "allow_in_bindings": 1,
+                    "allow_in_bindings": 0,
                     "tabs": "all",
                     "toolbar": "full",
                     "media_upload": 1,
                     "delay": 0
                 },
                 {
-                    "key": "field_67d2c6000865d",
-                    "label": "About Image",
+                    "key": "field_67d49b04fd809",
+                    "label": "about_image",
                     "name": "about_image",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "url",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "20",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "url",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
+                    "default_value": "",
                     "allow_in_bindings": 0,
-                    "preview_size": "medium"
+                    "placeholder": ""
                 },
                 {
-                    "key": "field_67d2c5d10865c",
+                    "key": "field_67d49b29fd80a",
                     "label": "Text Right",
                     "name": "text_right",
                     "aria-label": "",
@@ -135,12 +127,12 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "40",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "allow_in_bindings": 1,
+                    "allow_in_bindings": 0,
                     "tabs": "all",
                     "toolbar": "full",
                     "media_upload": 1,
@@ -167,5 +159,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741948254
+    "modified": 1742839685
 }

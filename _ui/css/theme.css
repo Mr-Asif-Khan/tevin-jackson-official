@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
   font-size: 18px;
   color: #000;
-  font-family: "proxima-nova", sans-serif; margin-top: 0;
+  font-family: "proxima-nova", "Outfit", sans-serif; margin-top: 0;
   line-height: 1.5em; margin-bottom: 20px;
 }
 
@@ -1356,9 +1356,9 @@ span.event_date i {
   flex-direction: column; 
   position: absolute; 
   height: 280px; 
-  width: 230px; 
+  width: 300px; 
   top: 0;   
-  left: 320px;  
+  left: 298px;  
   overflow: hidden;  
   transition: all 200ms ease-in-out;
 }
@@ -2123,7 +2123,7 @@ span.event_date i {
   }
 
   .single_service .overlay{
-    left: 69%;
+    left: 60%;
   }
 
   .single_service .overlay h2{
@@ -3924,4 +3924,386 @@ img {
     width: 100%;
   }
   
+}
+
+
+/* Single Neighborhood CSS */
+
+
+/* Crime & Safety Table */
+
+.crime-and-safety-table table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  border: .0625rem solid #d2d2d2;
+  border-radius: .5rem;
+}
+.crime-and-safety-table table thead th{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+.crime-and-safety-table table tfoot tr td{
+  border: none;
+}
+.crime-and-safety-table table thead{
+  text-align: right;
+}
+
+.crime-and-safety-table table thead tr th:nth-child(2){
+  width: 24%;
+}
+.crime-and-safety-table table thead tr th:nth-child(3){
+  width: 12%;
+}
+
+.crime-and-safety-table table tbody{
+  text-align: right;
+}
+
+.crime-and-safety-table table tfoot{
+  text-align: right;
+  font-weight: bold;
+}
+
+.crime-and-safety-table table tbody{
+  padding: 0 16px;
+}
+
+.crime-and-safety-table table tbody tr td:nth-child(1){
+  text-align: left;
+}
+
+.crime-and-safety-table table tfoot tr td:nth-child(1){
+  text-align: left;
+}
+.crime-and-safety-table table tbody tr td{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.crime-and-safety-table table thead th:nth-child(1){
+  text-align: left;
+}
+
+
+
+/* Home Trends Table */
+
+.lighter-text {
+  font-weight: 200;
+}
+
+.home-trends-table table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  border: .0625rem solid #d2d2d2;
+  border-radius: .5rem;
+}
+
+.home-trends-table table thead{
+  text-align: left;
+}
+
+.home-trends-table table thead th{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.home-trends-table table tbody tr td{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.home-trends-table table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+.home-trends-table table tbody tr td{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.home-trends-table table tbody tr td:nth-child(2){
+  text-align: right;
+  padding-right: 40px;
+  font-weight: bold;
+}
+
+.home-trends-table table tbody tr td:nth-child(4){
+  text-align: right;
+  font-weight: bold;
+}
+
+/* Home Facts Table */
+
+.home-facts-table table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  border: .0625rem solid #d2d2d2;
+  border-radius: .5rem;
+}
+
+.home-facts-table table thead{
+  text-align: left;
+}
+
+.home-facts-table table thead th{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.home-facts-table table tbody tr td{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.home-facts-table table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+.home-facts-table table tbody tr td{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.home-facts-table table tbody tr td:nth-child(2){
+  text-align: right;
+  padding-right: 40px;
+  font-weight: bold;
+}
+
+.home-facts-table table tbody tr td:nth-child(4){
+  text-align: right;
+  font-weight: bold;
+}
+
+
+/* Demographics Table */
+
+.demographics-table table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  border: .0625rem solid #d2d2d2;
+  border-radius: .5rem;
+}
+
+.demographics-table table thead{
+  text-align: left;
+}
+
+.demographics-table table thead th{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.demographics-table table tbody tr td{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.demographics-table table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+.demographics-table table tbody tr td{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.demographics-table table tbody tr td:nth-child(2){
+  text-align: right;
+  padding-right: 40px;
+  font-weight: bold;
+}
+
+.demographics-table table tbody tr td:nth-child(4){
+  text-align: right;
+  font-weight: bold;
+}
+
+/* Finances Table */
+
+.finances-table table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  border: .0625rem solid #d2d2d2;
+  border-radius: .5rem;
+}
+
+.finances-table table thead{
+  text-align: left;
+}
+
+.finances-table table thead th{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.finances-table table tbody tr td{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.finances-table table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+.finances-table table tbody tr td{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.finances-table table tbody tr td:nth-child(2){
+  text-align: right;
+  padding-right: 40px;
+  font-weight: bold;
+}
+
+.finances-table table tbody tr td:nth-child(4){
+  text-align: right;
+  font-weight: bold;
+}
+
+
+/* Education and Workforce Table */
+
+.education-and-workforce-table table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  border: .0625rem solid #d2d2d2;
+  border-radius: .5rem;
+}
+
+.education-and-workforce-table table thead{
+  text-align: left;
+}
+
+.education-and-workforce-table table thead th{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.education-and-workforce-table table tbody tr td{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.education-and-workforce-table table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+.education-and-workforce-table table tbody tr td{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.education-and-workforce-table table tbody tr td:nth-child(2){
+  text-align: right;
+  padding-right: 40px;
+  font-weight: bold;
+}
+
+.education-and-workforce-table table tbody tr td:nth-child(4){
+  text-align: right;
+  font-weight: bold;
+}
+
+
+/* Weather Table */
+
+.weather-table table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  border: .0625rem solid #d2d2d2;
+  border-radius: .5rem;
+}
+
+.weather-table table thead{
+  text-align: left;
+}
+
+.weather-table table thead th{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.weather-table table tbody tr td{
+  border: none;
+  border-bottom: .0625rem solid #d2d2d2;
+}
+
+.weather-table table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+.weather-table table tbody tr td{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.weather-table table tbody tr td:nth-child(2){
+  text-align: right;
+  padding-right: 40px;
+  font-weight: bold;
+}
+
+.weather-table table tbody tr td:nth-child(4){
+  text-align: right;
+  font-weight: bold;
+}
+
+
+
+
+
+.listings-container{
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  grid-gap: 1rem;
+  grid-auto-rows: 1fr;
+  list-style: none;
+  padding: 0px;
+}
+
+.agent-placards-results-container{
+  display: grid;
+  gap: 1rem;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0px;
+}
+
+.uagb-position__sticky.wp-block-uagb-container.uagb-block-11f58119.uagb-position__sticky--stuck{
+  margin-top: 50px !important;
+}
+
+
+/* Housing Chart */
+
+.housing-chart{
+  height: 320px !important;
+}
+
+.treemap-legend {
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 10px;
+}
+
+.treemap-legend div {
+  margin: 5px 10px;
+  font-size: 14px;
+  font-weight: 200;
 }
