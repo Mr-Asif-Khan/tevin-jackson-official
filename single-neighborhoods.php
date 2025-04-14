@@ -55,6 +55,7 @@
         color: #000;
         font-size: 18px;
     }
+
 </style>
 
 <main>
@@ -67,12 +68,13 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll("td").forEach(function (td) {
+        document.querySelectorAll(".single-heading-table td").forEach(function (td) {
             let parts = td.innerHTML.split("<br>");
-            if (parts.length > 1) {
-                td.innerHTML = parts[0] + "<br><span class='lighter-text'>" + parts[1] + "</span>";
-            }
-        });
+                if (parts.length > 1) {
+                    let rest = parts.slice(1).join("<br>");
+                    td.innerHTML = parts[0] + "<br><span class='lighter-text'>" + rest + "</span>";
+                }
+            });
     });
 
 </script>

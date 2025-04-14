@@ -229,37 +229,37 @@ function my_acf_json_save_point( $path ) {
 }
 add_filter( 'acf/settings/save_json', 'my_acf_json_save_point' );
 
-// function my_acf_import_json_fields() {
-// 	if (!function_exists('acf_get_field_groups') || !function_exists('acf_import_field_group')) {
-// 			return;
-// 	}
+function my_acf_import_json_fields() {
+	if (!function_exists('acf_get_field_groups') || !function_exists('acf_import_field_group')) {
+			return;
+	}
 
-// 	$json_path = get_template_directory() . '/inc/acf-json';
-// 	$json_files = glob($json_path . '/*.json');
+	$json_path = get_template_directory() . '/inc/acf-json';
+	$json_files = glob($json_path . '/*.json');
 
-// 	if ($json_files) {
-// 			$existing_groups = acf_get_field_groups();
-// 			$existing_keys = [];
+	if ($json_files) {
+			$existing_groups = acf_get_field_groups();
+			$existing_keys = [];
 
-// 			foreach ($existing_groups as $group) {
-// 					if (isset($group['key'])) {
-// 							$existing_keys[$group['key']] = true;
-// 					}
-// 			}
+			foreach ($existing_groups as $group) {
+					if (isset($group['key'])) {
+							$existing_keys[$group['key']] = true;
+					}
+			}
 
-// 			foreach ($json_files as $json_file) {
-// 					$json_content = file_get_contents($json_file);
-// 					$field_group = json_decode($json_content, true);
+			foreach ($json_files as $json_file) {
+					$json_content = file_get_contents($json_file);
+					$field_group = json_decode($json_content, true);
 
-// 					if ($field_group && isset($field_group['key'])) {
-// 							if (!isset($existing_keys[$field_group['key']])) {
-// 									acf_import_field_group($field_group);
-// 							}
-// 					}
-// 			}
-// 	}
-// }
-// add_action('after_setup_theme', 'my_acf_import_json_fields');
+					if ($field_group && isset($field_group['key'])) {
+							if (!isset($existing_keys[$field_group['key']])) {
+									acf_import_field_group($field_group);
+							}
+					}
+			}
+	}
+}
+add_action('after_setup_theme', 'my_acf_import_json_fields');
 
 
 
@@ -314,7 +314,7 @@ function register_custom_post_type() {
 			'has_archive'        => true,
 			'rewrite'            => array('slug' => 'listings'),
 			'menu_position'      => 5,
-			'menu_icon'          => 'dashicons-admin-home', // Custom Icon
+			'menu_icon'          => 'dashicons-admin-home',
 			'supports'           => array('title', 'editor', 'thumbnail', 'custom-fields')
 	);
 
@@ -402,60 +402,9 @@ function load_more_listings() {
 	$query = new WP_Query($args);
 
 	if ($query->have_posts()) :
-			while ($query->have_posts()) : $query->the_post();
-					$price = get_post_meta(get_the_ID(), 'property_price', true);
-					$bedrooms = get_post_meta(get_the_ID(), 'bedrooms', true);
-					$baths = get_post_meta(get_the_ID(), 'bathrooms', true);
-					$square_feet = get_post_meta(get_the_ID(), 'square_footage', true);
-					$status = get_post_meta(get_the_ID(), 'property_status', true);
-					?>
-					<div class="propertiess">
-							<div class="propertiessub">
-									<div class="feature_image_section">
-											<a href="<?php the_permalink(); ?>">
-													<?php if (has_post_thumbnail()) : ?>
-															<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>" class="propertie_image lazyloaded">
-													<?php endif; ?>
-											</a>
-											<div class="status_labels">
-                        <?php
-                          switch ($status) {
-                              case 'Sold':
-                                  $status_class = 'sold_label';
-                                  break;
-                              case 'Available':
-                                  $status_class = 'available_label';
-                                  break;
-                              case 'Pending':
-                                  $status_class = 'pending_label';
-                                  break;
-                              default:
-                                  $status_class = 'label';
-                                  $status = 'Unknown';
-                          }
-                          ?>
-                          <span class="<?php echo $status_class; ?>"><?php echo $status; ?></span>
-                      </div>
-									</div>
-									<div class="propertie_content">
-											<a href="<?php the_permalink(); ?>">
-													<h3 class="propertie_addresa"><?php the_title(); ?></h3>
-											</a>
-											<div class="propertie_price">
-													<span class="price">$ <?php echo !empty($price) ? number_format($price) : 'N/A'; ?></span>
-													<span class="single_detail_sec">
-															<?php echo !empty($bedrooms) ? $bedrooms . ' Bedrooms' : 'N/A'; ?> | 
-															<?php echo !empty($baths) ? $baths . ' Baths' : 'N/A'; ?> |  
-															<?php echo !empty($square_feet) ? number_format($square_feet) . ' ft' : 'N/A'; ?>
-													</span>
-											</div>
-											<div class="propertie_view_detail_button">
-                        <a class="view_detail" href="<?php the_permalink(); ?>">View Details</a>
-                      </div>
-									</div>
-							</div>
-					</div>
-			<?php endwhile;
+		while ($query->have_posts()) : $query->the_post();
+			get_template_part('template-parts/content', 'listing'); 
+		 endwhile;
 	endif;
 	
 	wp_reset_postdata();
@@ -545,8 +494,8 @@ function register_agents_cpt() {
 	$args = array(
 			'labels'             => $labels,
 			'public'             => true,
-			'has_archive'        => true,
-			'rewrite'            => array('slug' => 'agents'),
+			'has_archive'        => 'real-estate-agents',
+			'rewrite'            => array('slug' => 'real-estate-agent'),
 			'menu_position'      => 5,
 			'menu_icon'          => 'dashicons-businessperson',
 			'supports'           => array('title', 'editor', 'thumbnail', 'custom-fields'),
@@ -561,13 +510,54 @@ add_action('init', 'register_agents_cpt');
 function render_six_agents_shortcode($atts) {
 	ob_start();
 
+	$atts = shortcode_atts( array(
+			'school'      => '',
+			'neighborhood' => '',
+	), $atts, 'six-agents' );
+
+	$current_post_slug = get_post_field('post_name', get_post());
+
+	$agents_url = home_url('/real-estate-agents/' . $current_post_slug . '/');
+
 	$args = array(
 			'post_type'      => 'agents',
 			'posts_per_page' => 6,
 			'orderby'        => 'date',
-			'order'          => 'DESC'
+			'order'          => 'DESC',
 	);
 
+	$meta_query = array('relation' => 'AND');
+
+	if (!empty($atts['neighborhood'])) {
+			$neighborhood = get_page_by_path($atts['neighborhood'], OBJECT, 'neighborhoods');
+			if ($neighborhood) {
+					$meta_query[] = array(
+							'key'     => 'agent_neighborhood', 
+							'value'   => '"' . $neighborhood->ID . '"',
+							'compare' => 'LIKE'
+					);
+			}
+	}
+
+	if (!empty($atts['school'])) {
+			$school = get_page_by_path($atts['school'], OBJECT, 'schools');
+			if ($school) {
+				$neighborhood_id = get_field('school_neighborhood', $school->ID);
+				if ($neighborhood_id) {
+						$meta_query[] = array(
+								'key'     => 'agent_neighborhood',
+								'value'   => '"' . $neighborhood_id->ID . '"',
+								'compare' => 'LIKE'
+						);
+				}
+			}
+	}
+
+	if (count($meta_query) > 1) {
+			$args['meta_query'] = $meta_query;
+	}
+
+	// Run the query
 	$query = new WP_Query($args);
 
 	if ($query->have_posts()) {
@@ -577,6 +567,7 @@ function render_six_agents_shortcode($atts) {
 					get_template_part('template-parts/content-six-agent');
 			}
 			echo '</ul>';
+			echo '<a href="' . esc_url($agents_url) . '" class="view-all-link-btn">See All Agents</a>';
 			wp_reset_postdata();
 	} else {
 			echo '<p>No Agents found.</p>';
@@ -587,42 +578,49 @@ function render_six_agents_shortcode($atts) {
 add_shortcode('six-agents', 'render_six_agents_shortcode');
 
 
+
 function render_one_agent_shortcode($atts) {
 	ob_start();
 
 	$name = isset($atts['name']) ? sanitize_text_field($atts['name']) : '';
-	$neighborhood_title = get_the_title();
-	set_query_var('neighborhood_title', $neighborhood_title);
+	$post_type = isset($atts['post_type']) ? sanitize_text_field($atts['post_type']) : 'NEIGHBORHOOD';
+	$message = isset($atts['message']) ? sanitize_text_field($atts['message']) : '';
+
+	$post_title = get_the_title();
+
+	set_query_var('post_title', $post_title);
+	set_query_var('shortcode_message', $message);
+	set_query_var('shortcode_post_type', $post_type);
 
 	$args = array(
-			'post_type'      => 'agents',
-			'posts_per_page' => 1,
-			'orderby'        => 'date',
-			'order'          => 'DESC'
+		'post_type'      => 'agents',
+		'posts_per_page' => 1,
+		'orderby'        => 'date',
+		'order'          => 'DESC'
 	);
 
 	if (!empty($name)) {
 		$args['meta_query'] = array(
-				array(
-						'key'     => 'agent_name',
-						'value'   => $name,
-						'compare' => '='
-				)
+			array(
+				'key'     => 'agent_name',
+				'value'   => $name,
+				'compare' => '='
+			)
 		);
 	}
 
 	$query = new WP_Query($args);
 
 	if ($query->have_posts()) {
-			echo '<div class="sticky-wrapper">';
-			while ($query->have_posts()) {
-					$query->the_post();
-					get_template_part('template-parts/content-one-agent');
-			}
-			echo '</div>';
-			wp_reset_postdata();
+		echo '<div class="sticky-wrapper">';
+		while ($query->have_posts()) {
+			$query->the_post();
+			get_template_part('template-parts/content-one-agent');
+		}
+		echo '</div>';
+		wp_reset_postdata();
 	} else {
-			echo '<p>No Agents found.</p>';
+		echo '<p>No Agent found.</p>';
 	}
 
 	return ob_get_clean();
@@ -681,7 +679,7 @@ function register_neighborhoods_cpt() {
 			'labels'             => $labels,
 			'public'             => true,
 			'has_archive'        => true,
-			'rewrite'            => array('slug' => 'neighborhoods'),
+			'rewrite' 					 => array('slug' => 'local-guide/neighborhoods'),
 			'menu_position'      => 5,
 			'menu_icon'          => 'dashicons-location-alt',
 			'supports'           => array('title', 'editor', 'thumbnail', 'custom-fields'),
@@ -715,12 +713,144 @@ add_filter('manage_edit-neighborhoods_columns', 'custom_neighborhood_columns_ord
 
 function show_featured_image_column_neighborhoods($column, $post_id) {
 	if ($column == 'neighborhood_image') {
-			$image = get_the_post_thumbnail($post_id, array(150, 100));
+			$image = get_the_post_thumbnail($post_id, array(80, 120));
 			echo $image ? $image : 'No Image';
 	}
 }
 add_action('manage_neighborhoods_posts_custom_column', 'show_featured_image_column_neighborhoods', 10, 2);
 
+
+
+
+// Custom Post Type: Schools
+function register_schools_cpt() {
+	$labels = array(
+		'name'               => __('Schools'),
+		'singular_name'      => __('School'),
+		'menu_name'          => __('Schools'),
+		'name_admin_bar'     => __('School'),
+		'add_new'            => __('Add New School'),
+		'add_new_item'       => __('Add New School'),
+		'new_item'           => __('New School'),
+		'edit_item'          => __('Edit School'),
+		'view_item'          => __('View School'),
+		'all_items'          => __('All Schools'),
+		'search_items'       => __('Search Schools'),
+		'not_found'          => __('No Schools found'),
+		'not_found_in_trash' => __('No Schools found in Trash')
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'has_archive'        => 'schools',
+		'rewrite'            => array('slug' => 'school'),
+		'menu_position'      => 5,
+		'menu_icon'          => 'dashicons-welcome-learn-more',
+		'supports'           => array('title', 'editor', 'thumbnail', 'custom-fields'),
+		'show_in_rest'       => true
+	);
+
+	register_post_type('schools', $args);
+}
+add_action('init', 'register_schools_cpt');
+
+
+// Change admin columns order for Schools
+function custom_schools_columns_order($columns) {
+	$new_columns = [];
+
+	$new_columns['cb'] = $columns['cb'];
+	$new_columns['school_image'] = 'Image';
+	$new_columns['title'] = $columns['title'];
+	$new_columns['date'] = $columns['date'];
+
+	return $new_columns;
+}
+add_filter('manage_edit-schools_columns', 'custom_schools_columns_order');
+
+
+// Show thumbnail image in Schools admin list
+function show_featured_image_column_schools($column, $post_id) {
+	if ($column == 'school_image') {
+		$image = get_the_post_thumbnail($post_id, array(80, 120));
+		echo $image ? $image : 'No Image';
+	}
+}
+add_action('manage_schools_posts_custom_column', 'show_featured_image_column_schools', 10, 2);
+
+
+
+function render_three_schools_shortcode($atts) {
+	ob_start();
+
+	$atts = shortcode_atts( array(
+		'neighborhood' => '',
+	), $atts, 'three-schools' );
+
+	$current_post_slug = get_post_field('post_name', get_post());
+	$schools_url = home_url('/schools/' . $current_post_slug . '/');
+
+
+	$args = array(
+		'post_type'      => 'schools',
+		'posts_per_page' => 3,
+		'orderby'        => 'date',
+		'order'          => 'DESC'
+	);
+
+	if (!empty($atts['neighborhood'])) {
+		$neighborhood = get_page_by_path($atts['neighborhood'], OBJECT, 'neighborhoods');
+		if ($neighborhood) {
+			$args['meta_query'] = array(
+				array(
+					'key'     => 'school_neighborhood', 
+					'value'   => '"' . $neighborhood->ID . '"',
+					'compare' => 'LIKE'
+				)
+			);
+		}
+	}
+
+	$query = new WP_Query($args);
+
+	if ($query->have_posts()) {
+		echo '<ul class="listings-container">';
+		while ($query->have_posts()) {
+			$query->the_post();
+			get_template_part('template-parts/content-three-school');
+		}
+		echo '</ul>';
+		echo '<a href="' . esc_url($schools_url) . '" class="view-all-link-btn">See All Schools</a>';
+		wp_reset_postdata();
+	} else {
+		echo '<p>No Schools found.</p>';
+	}
+
+	return ob_get_clean();
+}
+add_shortcode('three_schools', 'render_three_schools_shortcode');
+
+
+function custom_agents_rewrite() {
+	add_rewrite_rule(
+		'^real-estate-agents/([^/]*)/?$',
+		'index.php?post_type=agents&agent_filter=$matches[1]',
+		'top'
+	);
+}
+add_action('init', 'custom_agents_rewrite');
+
+
+function add_agent_query_var($vars) {
+	$vars[] = 'agent_filter';
+	return $vars;
+}
+add_filter('query_vars', 'add_agent_query_var');
+
+
+
+// Custom Chart Block
 
 function enqueue_housing_chart_blocks() {
 	wp_register_script(
@@ -811,3 +941,63 @@ function enqueue_line_chart_blocks() {
 	));
 }
 add_action('init', 'enqueue_line_chart_blocks');
+
+
+function set_agents_per_page($query) {
+	if (!is_admin() && $query->is_main_query() && is_post_type_archive('agents')) {
+			$query->set('posts_per_page', 20);
+	}
+}
+add_action('pre_get_posts', 'set_agents_per_page');
+
+
+function set_schools_per_page($query) {
+	if (!is_admin() && $query->is_main_query() && is_post_type_archive('schools')) {
+			$query->set('posts_per_page', 20);
+	}
+}
+add_action('pre_get_posts', 'set_schools_per_page');
+
+function set_neighborhoods_per_page($query) {
+	if (!is_admin() && $query->is_main_query() && is_post_type_archive('neighborhoods')) {
+			$query->set('posts_per_page', 20);
+	}
+}
+add_action('pre_get_posts', 'set_neighborhoods_per_page');
+
+function custom_schools_rewrite() {
+	if (!is_single()) {
+		add_rewrite_rule(
+				'^schools/([^/]*)/?$',
+				'index.php?post_type=schools&school_filter=$matches[1]',
+				'top'
+		);
+	}
+}
+add_action('init', 'custom_schools_rewrite');
+
+
+function add_school_query_var($vars) {
+	$vars[] = 'school_filter';
+	return $vars;
+}
+add_filter('query_vars', 'add_school_query_var');
+
+
+
+
+function exclude_default_posts_from_search( $query ) {
+	if ( $query->is_search && !is_admin() && $query->is_main_query() ) {
+			$query->set( 'post_type', array( 'listing', 'neighborhoods', 'agents', 'schools' ) );
+	}
+}
+add_action( 'pre_get_posts', 'exclude_default_posts_from_search' );
+
+function custom_search_query( $query ) {
+	if ( $query->is_search && !is_admin() && isset($_GET['post_type']) && !empty($_GET['post_type'])) {
+			$query->set( 'post_type', sanitize_text_field( $_GET['post_type'] ) );
+	} elseif ( $query->is_search && !is_admin()) {
+			$query->set( 'post_type', array( 'listing', 'neighborhoods', 'agents', 'schools' ) );
+	}
+}
+add_action( 'pre_get_posts', 'custom_search_query' );

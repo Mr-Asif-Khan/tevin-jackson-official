@@ -9,52 +9,57 @@
 
 get_header();
 ?>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+	body{
+	}
+	.error-div{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 500px;
+	}
+	.error-div h1{
+		font-size: 96px;
+		font-family: "Outfit", sans-serif !important;
+	}
+	.error-div h2{
+		font-size: 36px;
+		font-weight: 400;
+		font-family: "Outfit", sans-serif !important;
+	}
+	.error-div p{
+		font-size: 24px;
+		font-weight: 200;
+		font-family: "Outfit", sans-serif !important;
+	}
+	.error-div a{
+		background: linear-gradient(to bottom, #c7202e 0%, #6b131c 100%);
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 5px;
+		font-family: "Outfit", sans-serif !important;
+		font-size: 16px;
+		border: none;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+	.error-div a:hover{
+		transform: scale(1.1);
+	}
+</style>
 
-	<main id="primary" class="site-main">
-
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'tevin-jackson-official' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'tevin-jackson-official' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'tevin-jackson-official' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$tevin_jackson_official_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'tevin-jackson-official' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$tevin_jackson_official_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
+	<div class="container">
+		<div class="error-div">
+			<h1 class="error-heading">404</h1>
+			<h2 class="error-message">Oops! Page not found</h2>
+			<p class="error-detail-message">The Page you are looking for does not exist, or has been removed.</p>
+			
+			<a href="<?php echo home_url(); ?>">Go Home</a>
+		</div>
+	</div>
 
 <?php
 get_footer();

@@ -186,21 +186,23 @@
 			</div>
   </header>
 	
-	<div class="search-panel ">
-        <a href="#" class="search-close">
-            <svg class="custom-svg-icon" data-name="mk-moon-close-2" data-cacheid="icon-67c8a21ae0453" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path d="M390.628 345.372l-45.256 45.256-89.372-89.373-89.373 89.372-45.255-45.255 89.373-89.372-89.372-89.373 45.254-45.254 89.373 89.372 89.372-89.373 45.256 45.255-89.373 89.373 89.373 89.372z"></path>
-            </svg>
-        </a>
-        <div class="search-wrapper">
-            <p>Start typing and press Enter to search</p>
-            <form method="get" id="search-form-overlay" action="https://grantcardone.com/">
-                <input type="text" value="" name="s" id="search-form-input" class="lazyloaded">
-                <i class="search-form-icon">
-                    <svg class="custom-svg-icon" style="height:25px;width:23.2142857143px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1664 1792">
-                        <path d="M1152 832q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z"></path>
-                    </svg>
-                </i>
-            </form>
-        </div>
-    </div>
+	<div class="search-panel">
+		<a href="#" class="search-close">
+			<svg class="custom-svg-icon" data-name="mk-moon-close-2" data-cacheid="icon-67c8a21ae0453" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+				<path d="M390.628 345.372l-45.256 45.256-89.372-89.373-89.373 89.372-45.255-45.255 89.373-89.372-89.372-89.373 45.254-45.254 89.373 89.372 89.372-89.373 45.256 45.255-89.373 89.373 89.373 89.372z"></path>
+			</svg>
+		</a>
+		<div class="search-wrapper">
+			<p>Start typing and press Enter to search</p>
+			<form method="get" id="search-form-overlay" action="<?php echo esc_url(home_url('/')); ?>">
+				<input type="text" value="" name="s" id="search-form-input" class="lazyloaded">
+				<input type="hidden" name="post_type" value="" />
+
+				<i class="search-form-icon">
+					<svg class="custom-svg-icon" style="height:25px;width:23.2142857143px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1664 1792">
+						<path d="M1152 832q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z"></path>
+					</svg>
+				</i>
+			</form>
+		</div>
+  </div>

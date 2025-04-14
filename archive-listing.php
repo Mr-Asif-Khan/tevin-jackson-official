@@ -1,23 +1,108 @@
 <?php get_header(); ?>
 <style>
-    @import url('https://fonts.cdnfonts.com/css/satoshi');
-    body {
-      background-color: #F2FAFF;
-      font-family: 'Satoshi', sans-serif;
+    body{
+      font-family: "Poppins", sans-serif;
     }
-    
+    body.modal-open {
+      overflow: auto !important;
+    }
+    .reset_filter.show{
+      display: block;
+    }
+    .reset_filter.hide{
+      display: none;
+    }
+    .bedrooms-fields, .bathroom-fields, .status-fields{
+      display: flex;
+      justify-content: flex-start;
+      align-items: baseline;
+      width: 100%;
+      margin-bottom: 30px;
+      padding: 0px 15px;
+    }
+    .bedrooms-fields > label, .bathroom-fields > label, .status-fields label{
+      max-width: 30%;
+      width: 100%;
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .bedrooms-fields > div, .bathroom-fields> div{
+      display: flex;
+      max-width: 70%;
+      width: 100%;
+      align-items: baseline;
+    }
+    .status-fields div{
+      max-width: 70%;
+      width: 100%;
+      align-items: baseline;
+    }
+    .property-filter-form input[type=number] {
+      margin: 0;
+      border: 1px solid #e5e5e5;
+      outline: none;
+      padding-left: 10px;
+      text-align: left;
+      padding: 5px 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      width: 100%;
+      height: 40px;
+      margin: 0 10px;
+    }
+    .modelbtn {
+      display: flex;
+      max-width: 100%;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0;
+      padding-top: 16px;
+      border-top: 1px solid #f2f2f2;
+    }
+    .modelbtn button:nth-child(1) {
+      font-family: "Poppins", sans-serif;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      font-style: normal;
+      line-height: normal;
+      color: #000;
+    }
+    .modelbtn button:nth-child(2) {
+      font-family: "Poppins", sans-serif;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      font-style: normal;
+      line-height: normal;
+      color: #fff;
+      background-color: #1b4965;
+      border-radius: 3px;
+      padding: 8px 37px;
+    }
+    span.noproperty{
+      margin-bottom: 40px;
+      text-align: center;
+      display: block;
+      color: #036464;
+      font-weight: 600;
+      font-size: 22px;
+      padding: 20px 10px;
+      border: 2px dashed #036464;
+    }
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<div class="container" style="max-width: 1370px; padding: 0px;">
-  <div class="propertie_title_filter_main">
+
+<div class="propertie_title_filter_main">
+  <div class="container" style="max-width: 1440px; padding: 0px;">
     <div class="propertie_title_filter_inner">
       <div class="propertie_title">
         <h1>Properties</h1>
       </div>
       <div class="propertie_filter_divi">
         <div class="propertie_filter">
-          <a href="#" class="filter_button" data-toggle="modal" data-target="#filterproperties"><img width="512" height="512" src="<?php echo get_template_directory_uri(); ?>/img/filter.png" class="propertie_filter_img" loading="lazy" data-ll-status="loaded">Filter Properties</a>
+          <a href="#" class="filter_button filter-button" data-toggle="modal" data-target="#filterproperties"><img width="512" height="512" src="<?php echo get_template_directory_uri(); ?>/img/filter-white.png" class="propertie_filter_img" loading="lazy" data-ll-status="loaded">Filter Properties</a>
         </div>
         <div class="reset_filter">
           <a href="#" class="filter_button"><img width="260" height="260" src="<?php echo get_template_directory_uri(); ?>/img/reset-iconn.jpg" class="propertie_filter_img" loading="lazy" data-ll-status="loaded">Reset Properties</a> 
@@ -25,243 +110,319 @@
       </div>
     </div>
   </div>
+</div>
+
+
+
+<?php 
+$bedrooms_min = isset($_GET['bedrooms_min']) ? $_GET['bedrooms_min'] : '';
+$bedrooms_max = isset($_GET['bedrooms_max']) ? $_GET['bedrooms_max'] : '';
+$bathrooms_min = isset($_GET['bathrooms_min']) ? $_GET['bathrooms_min'] : '';
+$bathrooms_max = isset($_GET['bathrooms_max']) ? $_GET['bathrooms_max'] : '';
+$status = isset($_GET['status']) ? $_GET['status'] : '';
+?>
+
+
+<div class="container" style="max-width: 1440px; padding: 0px;">
   <?php 
   $featured_args = array(
-  'post_type'      => 'listing',
-  'posts_per_page' => 1, 
-  'paged'          => 1
+    'post_type'      => 'listing',
+    'posts_per_page' => 1, 
+    'paged'          => 1,
+    'meta_query' => array(
+        'relation' => 'AND',
+    ),
   );
+
+  if ($bedrooms_min) {
+    $featured_args['meta_query'][] = array(
+      'key' => 'bedrooms',
+      'value' => $bedrooms_min,
+      'compare' => '>=',
+      'type' => 'NUMERIC',
+    );
+  }
+  if ($bedrooms_max) {
+    $featured_args['meta_query'][] = array(
+      'key' => 'bedrooms',
+      'value' => $bedrooms_max,
+      'compare' => '<=',
+      'type' => 'NUMERIC',
+    );
+  }
+  if ($bathrooms_min) {
+    $featured_args['meta_query'][] = array(
+      'key' => 'bathrooms',
+      'value' => $bathrooms_min,
+      'compare' => '>=',
+      'type' => 'NUMERIC',
+    );
+  }
+  if ($bathrooms_max) {
+    $featured_args['meta_query'][] = array(
+      'key' => 'bathrooms',
+      'value' => $bathrooms_max,
+      'compare' => '<=',
+      'type' => 'NUMERIC',
+    );
+  }
+  if ($status) {
+    $featured_args['meta_query'][] = array(
+      'key' => 'property_status',
+      'value' => $status,
+      'compare' => '=',
+    );
+  }
   $featured_query = new WP_Query($featured_args);
   $excluded_post_id = array();
 
+
   if ($featured_query->have_posts()) : 
     while ($featured_query->have_posts()) : $featured_query->the_post();
+      get_template_part('template-parts/content', 'featured-listing'); 
       $excluded_post_id[] = get_the_ID();
-      $price = get_post_meta(get_the_ID(), 'property_price', true);
-      $bedrooms = get_post_meta(get_the_ID(), 'bedrooms', true);
-      $baths = get_post_meta(get_the_ID(), 'bathrooms', true);
-      $lot_size = get_post_meta(get_the_ID(), 'lot_size', true);
-      $square_footage = get_post_meta(get_the_ID(), 'square_footage', true);
-      $house_type = get_post_meta(get_the_ID(), 'house_type', true);
-      $year_built = get_post_meta(get_the_ID(), 'year_built', true);
-      $garage = get_post_meta(get_the_ID(), 'garage', true);
-  ?>
-  <div class="featurepropertiess">
-    <div class="propertiessub">
-      <div class="feature_image_section">
-        <a href="<?php the_permalink(); ?>">
-          <?php if (has_post_thumbnail()) : ?>
-            <img src="<?php the_post_thumbnail_url('large'); ?>" class="propertie_image" loading="lazy" data-ll-status="loaded" alt="<?php the_title(); ?>">
-          <?php endif; ?>
-        </a>
-      </div>
-      <div class="propertie_content">
-        <a href="<?php the_permalink(); ?>">
-          <h3 class="propertie_addresa"><?php the_title(); ?></h3>
-        </a>
-        <div class="propertie_price">
-          <span class="price">$<?php echo !empty($price) ? number_format($price) : 'N/A'; ?></span>
-        </div>
-        <ul class="propertie_details">
-          <li>
-            <div class="single_detail_section">
-              <img width="24" height="24" src="<?php echo get_template_directory_uri(); ?>/img/home.png" class="single_icon" loading="lazy" data-ll-status="loaded">
-              <div class="single_detail">
-                <label>House Type</label>
-                <span><?php echo esc_html($house_type); ?></span>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="single_detail_section">
-              <img width="24" height="24" src="<?php echo get_template_directory_uri(); ?>/img/bed.png" class="single_icon" loading="lazy" data-ll-status="loaded">
-              <div class="single_detail">
-                <label>Bedrooms</label>
-                <span><?php echo esc_html($bedrooms); ?></span>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="single_detail_section">
-              <img width="24" height="24" src="<?php echo get_template_directory_uri(); ?>/img/build.png" class="single_icon" loading="lazy" data-ll-status="loaded">
-              <div class="single_detail">
-                <label>Year Built</label>
-                <span><?php echo esc_html($year_built); ?></span>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="single_detail_section">
-              <img width="24" height="24" src="<?php echo get_template_directory_uri(); ?>/img/ruler.png" class="single_icon" loading="lazy" data-ll-status="loaded">
-              <div class="single_detail">
-                <label>Approx.SqFt.</label>
-                <span><?php echo esc_html($square_footage); ?></span>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="single_detail_section">
-              <img width="24" height="24" src="<?php echo get_template_directory_uri(); ?>/img/bathtub.png" class="single_icon" loading="lazy" data-ll-status="loaded">
-              <div class="single_detail">
-                <label>Bathrooms</label>
-                <span><?php echo esc_html($baths); ?></span>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="single_detail_section">
-              <img width="24" height="24" src="<?php echo get_template_directory_uri(); ?>/img/garage.svg" class="single_icon" loading="lazy" data-ll-status="loaded">
-              <div class="single_detail">
-                <label>Garage</label>
-                <span><?php echo esc_html($garage); ?> Garage</span>
-              </div>
-              </div>
-          </li>
-          <li>
-            <div class="single_detail_section">
-              <img width="24" height="24" src="<?php echo get_template_directory_uri(); ?>/img/scale.png" class="single_icon" loading="lazy" data-ll-status="loaded">
-              <div class="single_detail">
-                <label>Lot size SqFt.</label>
-                <span><?php echo esc_html($lot_size); ?></span>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <div class="propertie_view_detail_button">
-          <a class="view_detail" href="<?php the_permalink(); ?>">View Details</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <?php 
     endwhile;
-    endif;
-    wp_reset_postdata()?>
-  
-  <div class="listinglist">
-  <?php
-    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    $args = array(
-        'post_type'      => 'listing',
-        'posts_per_page' => 4,
-        'paged'          => $paged,
-        'post__not_in'   => $excluded_post_id,
-    );
-
-    $listing_query = new WP_Query($args);
-
-    if ($listing_query->have_posts()) : 
-      while ($listing_query->have_posts()) : $listing_query->the_post();
-        $price = get_post_meta(get_the_ID(), 'property_price', true);
-        $bedrooms = get_post_meta(get_the_ID(), 'bedrooms', true);
-        $baths = get_post_meta(get_the_ID(), 'bathrooms', true);
-        $square_feet = get_post_meta(get_the_ID(), 'square_footage', true);
-        $status = get_post_meta(get_the_ID(), 'property_status', true);
+  else:
+    echo '<span class="noproperty">No Any Properties Found</span>';
+  endif;
+  wp_reset_postdata()
   ?>
-    <div class="propertiess">
-      <div class="propertiessub">
-        <div class="feature_image_section">
-          <a href="<?php the_permalink(); ?>">
-              <?php if (has_post_thumbnail()) : ?>
-                  <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>" class="propertie_image" loading="lazy">
-              <?php endif; ?>
-          </a>
-          <div class="status_labels">
-          <?php
-            switch ($status) {
-                case 'Sold':
-                    $status_class = 'sold_label';
-                    break;
-                case 'Available':
-                    $status_class = 'available_label';
-                    break;
-                case 'Pending':
-                    $status_class = 'pending_label';
-                    break;
-                default:
-                    $status_class = 'label';
-                    $status = 'Unknown';
-            }
-            ?>
-            <span class="<?php echo $status_class; ?>"><?php echo $status; ?></span>
+</div>
+
+<div class="listings-with-background">
+  <div class="container" style="max-width: 1440px; padding: 0px;">
+    <div class="listinglist">
+      <?php
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $args = array(
+          'post_type'      => 'listing',
+          'posts_per_page' => 4,
+          'paged'          => $paged,
+          'post__not_in'   => $excluded_post_id,
+          'meta_query' => array(
+              'relation' => 'AND',
+          ),
+        );
+
+        if ($bedrooms_min) {
+          $args['meta_query'][] = array(
+              'key' => 'bedrooms',
+              'value' => $bedrooms_min,
+              'compare' => '>=',
+              'type' => 'NUMERIC',
+          );
+        }
+        if ($bedrooms_max) {
+            $args['meta_query'][] = array(
+                'key' => 'bedrooms',
+                'value' => $bedrooms_max,
+                'compare' => '<=',
+                'type' => 'NUMERIC',
+            );
+        }
+        if ($bathrooms_min) {
+            $args['meta_query'][] = array(
+                'key' => 'bathrooms',
+                'value' => $bathrooms_min,
+                'compare' => '>=',
+                'type' => 'NUMERIC',
+            );
+        }
+        if ($bathrooms_max) {
+            $args['meta_query'][] = array(
+                'key' => 'bathrooms',
+                'value' => $bathrooms_max,
+                'compare' => '<=',
+                'type' => 'NUMERIC',
+            );
+        }
+        if ($status) {
+            $args['meta_query'][] = array(
+                'key' => 'property_status',
+                'value' => $status,
+                'compare' => '=',
+            );
+        }
+        $listing_query = new WP_Query($args);
+
+        if ($listing_query->have_posts()) : 
+          while ($listing_query->have_posts()) : $listing_query->the_post();
+          get_template_part('template-parts/content', 'listing'); 
+      ?>
+      <?php endwhile;
+        endif;
+        wp_reset_postdata();
+      ?>
+    </div>
+    <?php if ($listing_query->max_num_pages > 1): ?>
+        <div class="load-more-container">
+            <button id="load-more" data-page="1" data-max="<?php echo $listing_query->max_num_pages; ?>">Load More</button>
+        </div>
+    <?php endif; ?>
+
+    <div class="signup-loader">
+        <div class="loader-div"></div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="filter-form" class="custom-modal">
+  <div class="custom-modal-dialog">
+  <div class="custom-modal-content">
+    <div class="custom-modal-header">
+      <h4 class="custom-modal-title">Filter Properties</h4>
+      <span class="custom-close">&times;</span>
+    </div>
+    <div class="custom-modal-body">
+      <div class="shortcode-container">
+        <form class="property-filter-form">
+          <!-- Bedrooms Range -->
+          <div class="bedrooms-fields">
+            <label for="bedrooms_min">#Bedrooms</label>
+            <div>
+              <input type="number" name="bedrooms_min" id="bedrooms_min" 
+                  value="<?php echo isset($_GET['bedrooms_min']) ? esc_attr($_GET['bedrooms_min']) : ''; ?>" 
+                  placeholder="Min">
+            
+              <label for="bedrooms_max">To</label>
+              <input type="number" name="bedrooms_max" id="bedrooms_max" 
+                    value="<?php echo isset($_GET['bedrooms_max']) ? esc_attr($_GET['bedrooms_max']) : ''; ?>" 
+                    placeholder="Max">
+            </div>
           </div>
-        </div>
-        <div class="propertie_content">
-            <a href="<?php the_permalink(); ?>">
-                <h3 class="propertie_addresa"><?php the_title(); ?></h3>
-            </a>
-            <div class="propertie_price">
-                <span class="price">$ <?php echo !empty($price) ? number_format($price) : 'N/A'; ?></span>
-                <span class="single_detail_sec">
-                    <?php echo !empty($bedrooms) ? $bedrooms . ' Bedrooms' : 'N/A'; ?> | 
-                    <?php echo !empty($baths) ? $baths . ' Baths' : 'N/A'; ?> |  
-                    <?php echo !empty($square_feet) ? number_format($square_feet) . ' ft' : 'N/A'; ?>
-                </span>
+          
+          <!-- Bathrooms Range -->
+          <div class="bathroom-fields">
+            <label for="bathrooms_min">#Bathrooms</label>
+            <div>
+              <input type="number" name="bathrooms_min" id="bathrooms_min" 
+                  value="<?php echo isset($_GET['bathrooms_min']) ? esc_attr($_GET['bathrooms_min']) : ''; ?>" 
+                  placeholder="Min">
+            
+              <label for="bathrooms_max">To</label>
+              <input type="number" name="bathrooms_max" id="bathrooms_max" 
+                    value="<?php echo isset($_GET['bathrooms_max']) ? esc_attr($_GET['bathrooms_max']) : ''; ?>" 
+                    placeholder="Max">
             </div>
-            <div class="propertie_view_detail_button">
-              <a class="view_detail" href="<?php the_permalink(); ?>">View Details</a>
+          </div>
+          
+          <!-- Status Radio Buttons -->
+          <div class="status-fields">
+            <label>Status</label>
+            <div>
+              <input type="radio" id="available" name="status" value="available" 
+                  <?php echo (isset($_GET['status']) && $_GET['status'] == 'available') ? 'checked' : ''; ?>>
+              <label for="available">Available</label><br>
+
+              <input type="radio" id="pending" name="status" value="pending" 
+                    <?php echo (isset($_GET['status']) && $_GET['status'] == 'pending') ? 'checked' : ''; ?>>
+              <label for="pending">Pending</label><br>
+
+              <input type="radio" id="sold" name="status" value="sold" 
+                    <?php echo (isset($_GET['status']) && $_GET['status'] == 'sold') ? 'checked' : ''; ?>>
+              <label for="sold">Sold</label><br>
             </div>
-        </div>
+          </div>
+
+          <div class="modelbtn">
+              <button type="button" class="btn btn-default custom-close-btn" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-default filterpropertiesbtn">Apply Filter</button>
+          </div>
+        </form>
       </div>
     </div>
-  <?php endwhile;
-    endif;
-    wp_reset_postdata();
-  ?>
-  </div>
-
-  <?php if ($listing_query->max_num_pages > 1): ?>
-      <div class="load-more-container">
-          <button id="load-more" data-page="1" data-max="<?php echo $listing_query->max_num_pages; ?>">Load More</button>
-      </div>
-  <?php endif; ?>
-
-  <div class="signup-loader">
-      <div class="loader-div"></div>
   </div>
 </div>
 
 <script>
-jQuery(document).ready(function($) {
-    var ajaxUrl = "<?php echo admin_url('admin-ajax.php'); ?>"; 
+  jQuery(document).ready(function($) {
+      var ajaxUrl = "<?php echo admin_url('admin-ajax.php'); ?>"; 
 
-    $("#load-more").click(function() {
-        var button = $(this);
-        var page = parseInt(button.attr("data-page")) + 1;
-        var maxPages = parseInt(button.attr("data-max"));
+      $("#load-more").click(function() {
+          var button = $(this);
+          var page = parseInt(button.attr("data-page")) + 1;
+          var maxPages = parseInt(button.attr("data-max"));
 
-        $(".signup-loader").css("display", "block");
+          $(".signup-loader").css("display", "block");
 
-        $.ajax({
-            type: "POST",
-            url: ajaxUrl,
-            data: {
-                action: "load_more_listings",
-                paged: page
-            },
-            beforeSend: function() {
-                button.text("Loading...");
-            },
-            success: function(response) {
-              if ($.trim(response) != '') {
-                $(".listinglist").append(response);
-                button.attr("data-page", page);
-                button.text("Load More");
+          $.ajax({
+              type: "POST",
+              url: ajaxUrl,
+              data: {
+                  action: "load_more_listings",
+                  paged: page
+              },
+              beforeSend: function() {
+                  button.text("Loading...");
+              },
+              success: function(response) {
+                if ($.trim(response) != '') {
+                  $(".listinglist").append(response);
+                  button.attr("data-page", page);
+                  button.text("Load More");
 
-                if (page >= maxPages) {
+                  if (page >= maxPages) {
+                      $(".load-more-container").remove();
+                  }
+                } else {
                     $(".load-more-container").remove();
                 }
-              } else {
-                  $(".load-more-container").remove();
+              },
+              complete: function() {
+                  $(".signup-loader").css("display", "none");
               }
-            },
-            complete: function() {
-                $(".signup-loader").css("display", "none");
-            }
-        });
-    });
-});
+          });
+      });
+  });
 </script>
 
 <?php get_footer(); ?>
 
+<script>
+  jQuery(document).ready(function($) {
+    function checkFilters() {
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('bedrooms_min') || urlParams.has('bedrooms_max') || urlParams.has('bathrooms_min') || urlParams.has('bathrooms_max') || urlParams.has('status')) {
+            $('.reset_filter').show();
+        } else {
+            $('.reset_filter').hide();
+        }
+    }
+    checkFilters();
+    $('.reset_filter').click(function() {
+        var url = window.location.href.split('?')[0];
+        window.location.href = url;
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+      var modal = $("#filter-form");
+      $(".filter-button").on("click", function (e) {
+          e.preventDefault();
+          $("body").addClass("modal-open");
+          modal.fadeIn(200, function () {
+              modal.addClass("show");
+          });
+      });
+
+      function closeModal() {
+          modal.removeClass("show");
+          setTimeout(function () {
+              modal.fadeOut(200, function () {
+                  $("body").removeClass("modal-open");
+              });
+          }, 300);
+      }
+
+      $(".custom-close ,.custom-close-btn ").on("click", closeModal);
+      $(window).on("click", function (event) {
+          if ($(event.target).is(modal)) {
+              closeModal();
+          }
+      });
+  });
+</script>

@@ -1,6 +1,10 @@
 <?php
 $name = get_post_meta(get_the_ID(), 'agent_name', true);
 $address = get_post_meta(get_the_ID(), 'agent_address', true);
+$post_title = get_query_var('post_title');
+$shortcode_message = get_query_var('shortcode_message');
+$shortcode_post_type = get_query_var('shortcode_post_type');
+$post_type_label = !empty($shortcode_post_type) ? strtoupper($shortcode_post_type) : 'NEIGHBORHOOD';
 ?>
 
 
@@ -73,7 +77,7 @@ $address = get_post_meta(get_the_ID(), 'agent_address', true);
     padding: .125rem .5rem;
     line-height: 130%;
     color: #fff;
-    background: linear-gradient(to bottom, #c7202e 0%, #6b131c 100%);;
+    background: linear-gradient(to bottom, #c7202e 0%, #6b131c 100%);
     border-radius: .125rem;
     margin-bottom: .0625rem;
     word-wrap: break-word;
@@ -152,11 +156,11 @@ $address = get_post_meta(get_the_ID(), 'agent_address', true);
     <div class="search-for-homes-header-container hide" id="search-for-homes-header-container">
         <div class="search-for-homes-header-line-1">
             <div class="search-for-homes-header-school-label">
-                <span class="search-for-homes-header-content">NEIGHBORHOOD</span>
+                <span class="search-for-homes-header-content"><?php echo esc_html($post_type_label); ?></span>
             </div>
         </div>
             <div class="search-for-homes-header-line-2">
-                <span class="search-for-homes-school-name"><?php echo esc_html(get_query_var('neighborhood_title')); ?></span>
+                <span class="search-for-homes-school-name"><?php echo $post_title?></span>
             </div>
     </div>
 
@@ -176,12 +180,16 @@ $address = get_post_meta(get_the_ID(), 'agent_address', true);
 
     <div class="secondary-info-container">
       <div class="message-container">
-        <p>
         <?php
-          $words = preg_split('/\s+/', trim($name));
-          $first_name = $words[0];
-          echo $first_name;
-          ?>, I'd like to learn more about homes in Five Points.</p>
+        $words = preg_split('/\s+/', trim($name));
+        $first_name = $words[0] ?? '';
+
+        if (!empty($shortcode_message)) {
+          echo '<p>' . esc_html($first_name) . ", " . esc_html($shortcode_message) . '</p>';
+        } else {
+          echo '<p>' . esc_html($first_name) . ", I'd like to learn more about homes in " . esc_html($post_title) . '.</p>';
+        }
+        ?>
       </div>
     </div>
 

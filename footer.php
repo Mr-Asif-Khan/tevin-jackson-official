@@ -62,28 +62,23 @@
         </div>
         <div class="footer_logo_wrap">
             <div class="item">
-                <a href="https://cardoneuniversity.com/" target="_blank" aria-label="Visit Cardone University">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/cardoneuniversity.webp" class="img-fluid" width="150" alt="">
+                <a href="/#" target="_blank" aria-label="Visit Cardone Capital">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/TJ-University-logo.png" class="img-fluid" alt="">
                 </a>
             </div>
             <div class="item">
-                <a href="https://gctv.com/?_gl=1*1nw1y9i*_gcl_au*OTM0MTY5MzgzLjE3NDA4MjYwOTU." target="_blank" aria-label="Visit Grant Cardone TV">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/grantcardonetv-logo.webp" class="img-fluid" width="150" alt="">
+                <a href="/#" target="_blank" aria-label="Visit Cardone University">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/TJ-Foundation-logo.png" class="img-fluid" alt="">
                 </a>
             </div>
             <div class="item">
-                <a href="https://cardoneondemand.com/" target="_blank" aria-label="Visit Cardone On Demand">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/cardoneondemand-1.webp" class="img-fluid" width="150" alt="">
+                <a href="/#" target="_blank" aria-label="Visit Grant Cardone TV">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/TJ-TV-logo.png" class="img-fluid" alt="">
                 </a>
             </div>
             <div class="item">
-                <a href="https://cardonecapital.com/" target="_blank" aria-label="Visit Cardone Capital">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/cardonecapital-logo.webp" class="img-fluid" width="150" alt="">
-                </a>
-            </div>
-            <div class="item">
-                <a href="https://grantcardonefoundation.com/" target="_blank" aria-label="Visit Grant Cardone Foundation">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/2021.02.16-white-thegcfoundation-horizontal-logo.png" class="img-fluid" width="150" alt="">
+                <a href="/#" target="_blank" aria-label="Visit Cardone On Demand">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/TJ-Capital-logo.png" class="img-fluid" alt="">
                 </a>
             </div>
         </div>

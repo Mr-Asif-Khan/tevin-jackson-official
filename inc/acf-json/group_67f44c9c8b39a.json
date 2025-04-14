@@ -1,11 +1,11 @@
 {
-    "key": "group_67db0969075cc",
-    "title": "Listing Forms Shortcodes",
+    "key": "group_67f44c9c8b39a",
+    "title": "School Details",
     "fields": [
         {
-            "key": "field_67db0969397a3",
-            "label": "Inquiry Form Shortcode",
-            "name": "inquiry_form_shortcode",
+            "key": "field_67f44c9cf05ad",
+            "label": "Grade Levels",
+            "name": "grade_levels",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "[contact-form-7 id=\"43ab970\" title=\"Inquiry\"]",
+            "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
@@ -24,11 +24,11 @@
             "append": ""
         },
         {
-            "key": "field_67db324ce7a22",
-            "label": "Get Offer Form Shortcode",
-            "name": "get_offer_form_shortcode",
+            "key": "field_67f44d85feebd",
+            "label": "School Type",
+            "name": "school_type",
             "aria-label": "",
-            "type": "text",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -37,19 +37,25 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "[contact-form-7 id=\"9da8fdb\" title=\"Offer-Form-Listings\"]",
-            "maxlength": "",
+            "choices": {
+                "Public": "Public",
+                "Private": "Private"
+            },
+            "default_value": "Private",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
             "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         },
         {
-            "key": "field_67db3be2b2a27",
-            "label": "Buy Now Form Shortcode",
-            "name": "buy_now_form_shortcode",
+            "key": "field_67f4637e69286",
+            "label": "School Neighborhood",
+            "name": "school_neighborhood",
             "aria-label": "",
-            "type": "text",
+            "type": "post_object",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -58,12 +64,18 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "[contact-form-7 id=\"611ba64\" title=\"Buy-Now-Form-Listings\"]",
-            "maxlength": "",
+            "post_type": [
+                "neighborhoods"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 1,
+            "allow_null": 0,
             "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -71,7 +83,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "listing"
+                "value": "schools"
             }
         ]
     ],
